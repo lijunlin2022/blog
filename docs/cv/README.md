@@ -1,6 +1,6 @@
 ## 个人信息
 
-<div style="display: flex; justify-content: space-around">
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap">
 <div style="display: flex; flex-direction: column; align-items: center; justify-content: center">
 	<img src="/images/hero.jpg" style="zoom: 25%;" />
 </div>
