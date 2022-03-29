@@ -18,9 +18,18 @@
   - 按钮，即 `button` 标签
   - 单行文本框，即 `input` 标签，其 `type` 为 `text`
   - 多行文本框，即 `textarea` 标签
-- 数据库使用浏览器自带的本地数据库 `IndexedDB`
+  
+- 数据库使用 `IndexedDB`，该数据库有两个重要特点
 
-由于数据库是浏览器本地的数据库，因此我们不必要关注网络请求；此外，由于 IndexedDB 是一个非关系型数据库，因此我们不必生成 SQL 语句，减轻了工作压力。
+  - 位于浏览器本地
+
+    普通的软件由于数据库处于服务器上，因此必须采用网络请求传递数据。选取这个数据库，可以让我们排除自动生成网络请求代码的干扰
+
+  - 是一个非关系型数据库，以类对象的方式存储数据
+
+    普通的软件遵从面向对象基本原则，关系型数据库则有自己的数学理论，两个理论存在显著差别，为了解决这个不匹配的现象，业界大多使用了 ORM （Object Relational Mapping，对象关系映射）思想，这个思想单独拿出来也是一个大课题
+
+    选取这个数据库，可以简化自动软件生成系统的理论研究
 
 ## 1 生成代码的原理
 
@@ -68,9 +77,7 @@ int main() {
 
 ## 3 生成 IndexedDB 的增删改查语句
 
-同样地，我们也要区分对 `IndexedDB` 来说，什么是数据，什么是模型。
-
-考虑到多数人比较熟悉关系型数据库，我们先举例关系型数据库的例子。
+我们首先看一下在关系型数据库中如何区分数据和模型。
 
 比如从 student 表中查询一个 id 为 1 的学生的名字，会有 SQL 语句如下：
 
@@ -80,7 +87,16 @@ SELECT name FROM student WHERE id = 1;
 
 这里的 `name`，`student`，`id` 和 `1` 均是数据，而其他不变的结构则认为是模型。
 
-事实上，通过对象直接映射生成 SQL 语句的，已经有成熟的解决办法，称之为 `ORM` 框架。
+至于 IndexedDB 这样的非关系型数据库，我们可以看一下它插入数据的代码：
+
+```javascript
+db
+  .transaction([storeName], 'readwrite') // 事务对象
+  .objectStore(storeName) // 仓库对象
+  .add(data)
+```
+
+显然，`db` 和 `storeName` 以及 `data` 就是数据，其他不变的结构就是模型。
 
 ## 4 使用 JSON 统一表示数据
 
@@ -105,18 +121,18 @@ SELECT name FROM student WHERE id = 1;
 
 ```json
 {
-	tag: "div",
-    children: [
+	"tag": "div",
+    "children": [
         {
-            tag: "h1",
-            children: {
-                tag: "span",
-                text: "hello world"
+            "tag": "h1",
+            "children": {
+                "tag": "span",
+                "text": "hello world"
             }
         },
         {
-            tag: "h1",
-            text: "this is json"
+            "tag": "h1",
+            "text": "this is json"
         }
     ]
 }
@@ -154,6 +170,21 @@ SELECT name FROM student WHERE id = 1;
 
 ### 4.2 IndexedDB 的 JSON Schema
 
-## 5 总结
-
-今天的内容就先写到这里
+```json
+{
+    "dbName": "student",
+    "storeName": "user",
+    "data": [
+        {
+            "uuid": "6d25a684-9558-11e9-aa94-efccd7a0659b",
+            "name": "Mike",
+            "age": 20
+        },
+        {
+            "uuid": "def539e8-d298-4575-b769-b55d7637b51e",
+            "name": "Tom",
+            "age": 18
+        }
+    ]
+}
+```
