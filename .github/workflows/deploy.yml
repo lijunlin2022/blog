@@ -8,7 +8,7 @@ on:
 jobs:
     build:
         # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
-        runs-on: ubuntu-latest
+        runs-on: centos-latest
         steps:
             # 获取源码
             - name: 迁出代码
