@@ -8,7 +8,7 @@ on:
 jobs:
     build:
         # runs-on 指定job任务运行所需要的虚拟机环境(必填字段)
-        runs-on: centos-latest
+        runs-on: ubuntu-latest
         steps:
             # 获取源码
             - name: 迁出代码
@@ -36,8 +36,6 @@ jobs:
               env:
                   # 私钥
                   SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-                  # scp参数
-                  ARGS: '-avzr --delete'
                   # 源目录
                   SOURCE: 'docs/.vuepress/dist'
                   # 服务器ip：换成你的服务器IP
