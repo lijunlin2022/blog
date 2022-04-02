@@ -1,0 +1,11 @@
+:root {
+  --c-brand: #fec200;
+  --c-brand-light: #ffd104;
+  --code-bg-color: #22272e;
+}
+
+html.dark {
+  --c-brand: #fec200;
+  --c-brand-light: #ffd104;
+  --code-bg-color: #000000;
+}
