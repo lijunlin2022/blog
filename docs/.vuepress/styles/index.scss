@@ -1,11 +1,13 @@
 :root {
-  --c-brand: #fec200;
+  --c-brand: #fec956;
   --c-brand-light: #ffd104;
   --code-bg-color: #22272e;
+  // --c-bg: #ffd101;
+  --c-bg: #fff7d1;
 }
 
 html.dark {
-  --c-brand: #fec200;
+  --c-brand: #fec956;
   --c-brand-light: #ffd104;
   --code-bg-color: #000000;
 }

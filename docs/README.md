@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/hero.jpg
+heroImage: /images/hero.png
 heroText: 李俊霖的小网站
 tagline: Talk is cheap. Show me the code.
 actions:

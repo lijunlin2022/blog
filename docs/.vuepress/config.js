@@ -4,7 +4,7 @@ const { copyCode } = require('vuepress-plugin-copy-code2')
 module.exports = {
   themeConfig: {
     // Public 文件路径
-    logo: '/images/hero.jpg'
+    logo: '/images/hero.png'
   },
   plugins: [
     copyCode({}),
