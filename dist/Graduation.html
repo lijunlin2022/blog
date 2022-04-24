@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>博客</title>
+  <link rel="stylesheet" href="/static/css/github-markdown.css" />
+  <link rel="stylesheet" href="/static/css/highlight-github.css" />
+  <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="stylesheet" href="/static/css/copy.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" />
+</head>
+<body>
+  <main>
+    <aside>
+      <header>
+        <img src="/static/img/logo.svg" />
+        <span>Rainforest Blog Docs</span>
+      </header>
+      <section>
+        <ul><li><a href="#%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5">自动软件生成系统的研究与实践</a></li><li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li><li><a href="#1-%E7%BB%AA%E8%AE%BA">1 绪论</a><ul><li><a href="#1.1-%E9%80%89%E9%A2%98%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E6%9D%A5%E6%BA%90%E3%80%81%E6%B6%89%E5%8F%8A%E7%9F%A5%E8%AF%86%E7%82%B9">1.1 选题的定义、来源、涉及知识点</a></li><li><a href="#1.2-%E8%AE%BA%E6%96%87%E7%9A%84%E7%BB%93%E6%9E%84%E5%92%8C%E9%87%8D%E7%82%B9">1.2 论文的结构和重点</a></li><li><a href="#1.3-%E5%9B%BD%E5%86%85%E5%A4%96%E7%9B%B8%E5%85%B3%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6%E3%80%81%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5">1.3 国内外相关理论研究、应用实践</a></li><li><a href="#1.3-%E8%AE%BA%E6%96%87%E7%9A%84%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84%E3%80%81%E5%86%85%E5%AE%B9%E5%8F%8A%E6%96%B9%E6%B3%95">1.3 论文的研究目的、内容及方法</a></li><li><a href="#1.4-%E8%AE%BA%E6%96%87%E7%9A%84%E5%88%9B%E6%96%B0%E4%B9%8B%E5%A4%84">1.4 论文的创新之处</a></li></ul></li><li><a href="#2-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0">2 自动化编程实现</a><ul><li><a href="#2.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94mvc-%E6%A8%A1%E5%9E%8B">2.1 自动化编程的核心模型——MVC 模型</a></li><li><a href="#2.2-view-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%92%8C-json-schema">2.2 View 的自动化实现——模板引擎和 JSON Schema</a></li><li><a href="#2.3-model-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0-%E2%80%94%E2%80%94-bpmn-%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%92%8C-orm">2.3  Model 的自动化实现 —— BPMN 工作流和 ORM</a></li></ul></li><li><a href="#3-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95">3 自动化测试</a><ul><li><a href="#3.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%86%E7%B1%BB">3.1 自动化测试的分类</a></li><li><a href="#3.2-%E4%B8%BB%E6%B5%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7">3.2 主流测试工具</a></li><li><a href="#3.3-%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B">3.3 测试类型</a></li></ul></li><li><a href="#4-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9B%86%E6%88%90%E5%92%8C%E5%8F%91%E5%B8%83">4 自动化集成和发布</a><ul><li><a href="#4.1-ci%2Fcd-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%87%BA%E7%8E%B0%E5%8E%9F%E5%9B%A0">4.1 CI/CD 的定义和出现原因</a></li><li><a href="#4.2-%E5%B8%82%E9%9D%A2%E5%B8%B8%E8%A7%81%E7%9A%84-ci%2Fcd">4.2 市面常见的 CI/CD</a></li></ul></li><li><a href="#5-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%B4%E6%8A%A4">5 自动软件生成系统的维护</a></li><li><a href="#6-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%85%B6%E4%BB%96%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7">6 自动软件生成系统的其他辅助工具</a><ul><li><a href="#6.1-prolog-%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B">6.1 Prolog 定义和基本类型</a></li><li><a href="#6.2-prolog-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8">6.2 Prolog 的基本应用</a></li><li><a href="#6.3-prolog-%E6%B1%82%E8%A7%A3%E5%9C%B0%E5%9B%BE%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98">6.3 Prolog 求解地图着色问题</a></li><li><a href="#6.4-%E5%A6%82%E4%BB%8A%E7%9A%84-prolog">6.4 如今的 Prolog</a></li></ul></li><li><a href="#7-%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94wide-%E5%AE%9E%E7%8E%B0%E5%85%B8%E5%9E%8B%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F">7 实践——WIDE 实现典型管理系统</a><ul><li><a href="#7.1-wide-%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">7.1 WIDE 的基础概念</a></li><li><a href="#7.2-%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1">7.2 前端设计</a></li><li><a href="#7.3-%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1">7.3 后端设计</a></li><li><a href="#7.4-%E5%8F%91%E5%B8%83">7.4 发布</a></li></ul></li><li><a href="#8-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">8 参考文献</a></li><li><a href="#9-%E8%87%B4%E8%B0%A2">9 致谢</a></li></ul>
+      </section>
+    </aside>
+    <article class="markdown-body">
+      <h1 id="%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5" tabindex="-1">自动软件生成系统的研究与实践</h1>
+<p>&lt;center&gt;姓名：李俊霖；学号：1120180326&lt;/center&gt;</p>
+<p>&lt;center&gt;北京理工大学计算机学院&lt;/center&gt;</p>
+<p><strong>摘要</strong>：软件自诞生那天起，最少手工编程、快速开发和交付一直是开发者追求的目标。本文探究了目前业界的自动软件生成系统平台（低代码平台）的自动开发、测试、部署、维护等方案。在开发中，介绍了模板引擎和 JSON Schema 配合生成前端代码的方法，以及 BPMN 和 ORM 配合生成后端代码的方法。并介绍 Jest 测试，GitHub Actions，GitLab +  Jenkins 部署。在探究理论过程中，给出作者使用 Vue 编写的三个例子：使用模板引擎生成静态博客、拖拽生成 HTML，使用 JSON Schema 配置生成表单。在实践部分，使用业界的自动软件生成工具 WIDE，生成了一个典型的学生信息管理系统。</p>
+<p><strong>关键词</strong>：低代码（Low Code），业务流程建模符号（BPMN），模板引擎，JSON Schema，BPMN，ORM，Jest，GitHub Actions，GitLab，Jenkins，Vue，WIDE</p>
+<h1 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h1>
+<p><div class="table-of-contents"><ul><li><a href="#%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5">自动软件生成系统的研究与实践</a></li><li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li><li><a href="#1-%E7%BB%AA%E8%AE%BA">1 绪论</a><ul><li><a href="#1.1-%E9%80%89%E9%A2%98%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E6%9D%A5%E6%BA%90%E3%80%81%E6%B6%89%E5%8F%8A%E7%9F%A5%E8%AF%86%E7%82%B9">1.1 选题的定义、来源、涉及知识点</a></li><li><a href="#1.2-%E8%AE%BA%E6%96%87%E7%9A%84%E7%BB%93%E6%9E%84%E5%92%8C%E9%87%8D%E7%82%B9">1.2 论文的结构和重点</a></li><li><a href="#1.3-%E5%9B%BD%E5%86%85%E5%A4%96%E7%9B%B8%E5%85%B3%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6%E3%80%81%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5">1.3 国内外相关理论研究、应用实践</a></li><li><a href="#1.3-%E8%AE%BA%E6%96%87%E7%9A%84%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84%E3%80%81%E5%86%85%E5%AE%B9%E5%8F%8A%E6%96%B9%E6%B3%95">1.3 论文的研究目的、内容及方法</a></li><li><a href="#1.4-%E8%AE%BA%E6%96%87%E7%9A%84%E5%88%9B%E6%96%B0%E4%B9%8B%E5%A4%84">1.4 论文的创新之处</a></li></ul></li><li><a href="#2-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0">2 自动化编程实现</a><ul><li><a href="#2.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94mvc-%E6%A8%A1%E5%9E%8B">2.1 自动化编程的核心模型——MVC 模型</a></li><li><a href="#2.2-view-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%92%8C-json-schema">2.2 View 的自动化实现——模板引擎和 JSON Schema</a></li><li><a href="#2.3-model-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0-%E2%80%94%E2%80%94-bpmn-%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%92%8C-orm">2.3  Model 的自动化实现 —— BPMN 工作流和 ORM</a></li></ul></li><li><a href="#3-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95">3 自动化测试</a><ul><li><a href="#3.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%86%E7%B1%BB">3.1 自动化测试的分类</a></li><li><a href="#3.2-%E4%B8%BB%E6%B5%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7">3.2 主流测试工具</a></li><li><a href="#3.3-%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B">3.3 测试类型</a></li></ul></li><li><a href="#4-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9B%86%E6%88%90%E5%92%8C%E5%8F%91%E5%B8%83">4 自动化集成和发布</a><ul><li><a href="#4.1-ci%2Fcd-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%87%BA%E7%8E%B0%E5%8E%9F%E5%9B%A0">4.1 CI/CD 的定义和出现原因</a></li><li><a href="#4.2-%E5%B8%82%E9%9D%A2%E5%B8%B8%E8%A7%81%E7%9A%84-ci%2Fcd">4.2 市面常见的 CI/CD</a></li></ul></li><li><a href="#5-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%B4%E6%8A%A4">5 自动软件生成系统的维护</a></li><li><a href="#6-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%85%B6%E4%BB%96%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7">6 自动软件生成系统的其他辅助工具</a><ul><li><a href="#6.1-prolog-%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B">6.1 Prolog 定义和基本类型</a></li><li><a href="#6.2-prolog-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8">6.2 Prolog 的基本应用</a></li><li><a href="#6.3-prolog-%E6%B1%82%E8%A7%A3%E5%9C%B0%E5%9B%BE%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98">6.3 Prolog 求解地图着色问题</a></li><li><a href="#6.4-%E5%A6%82%E4%BB%8A%E7%9A%84-prolog">6.4 如今的 Prolog</a></li></ul></li><li><a href="#7-%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94wide-%E5%AE%9E%E7%8E%B0%E5%85%B8%E5%9E%8B%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F">7 实践——WIDE 实现典型管理系统</a><ul><li><a href="#7.1-wide-%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">7.1 WIDE 的基础概念</a></li><li><a href="#7.2-%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1">7.2 前端设计</a></li><li><a href="#7.3-%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1">7.3 后端设计</a></li><li><a href="#7.4-%E5%8F%91%E5%B8%83">7.4 发布</a></li></ul></li><li><a href="#8-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">8 参考文献</a></li><li><a href="#9-%E8%87%B4%E8%B0%A2">9 致谢</a></li></ul></div></p>
+<h1 id="1-%E7%BB%AA%E8%AE%BA" tabindex="-1">1 绪论</h1>
+<h2 id="1.1-%E9%80%89%E9%A2%98%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E6%9D%A5%E6%BA%90%E3%80%81%E6%B6%89%E5%8F%8A%E7%9F%A5%E8%AF%86%E7%82%B9" tabindex="-1">1.1 选题的定义、来源、涉及知识点</h2>
+<h3 id="1.1.1-%E9%80%89%E9%A2%98%E5%AE%9A%E4%B9%89" tabindex="-1">1.1.1 选题定义</h3>
+<p>2014 年，弗雷斯特研究机构（Forrester  Research）上发布了一篇名为 《面向用户的应用程序出现了新的发布平台存储》（New Development Platforms Emerge For Customer Facing Applications）的报告。</p>
+<p>报告中提到了一种<mark>能够<strong>快速交付</strong>业务应用程序的平台，它只需要最小的手工编程，并且在<strong>设置、培训</strong>和<strong>开发</strong>方面投资最少</mark>。</p>
+<blockquote>
+<p>Platforms that enable <strong>rapid delivery</strong> of business applications with <strong>minimum hand-coding</strong> and minimal upfront investment in <strong>setup, training</strong>, and <strong>development</strong></p>
+<p>——<a href="https://www.forrester.com/report/New-Development-Platforms-Emerge-For-CustomerFacing-Applications/RES113411">New Development Platforms Emerge For Customer Facing Applications| Forrester</a></p>
+</blockquote>
+<p>区别于过去的单一功能，这种平台的目的是生成业务应用程序，他们将这种平台称之为（Low Code）。</p>
+<p>这种平台也正是作者课题中所说的，<strong>自动软件生成系统</strong>。</p>
+<h3 id="1.1.2-%E9%80%89%E9%A2%98%E6%9D%A5%E6%BA%90" tabindex="-1">1.1.2 选题来源</h3>
+<p>事实上，从软件整个行业诞生以来，快速生成项目应用、最小手动编程的诉求一直存在。为此行业内进行了不同的尝试。</p>
+<p>比如可视化编程语言，1991 年由微软公司推出的 Visual Basic 语言。采用面向对象的思想，开发人员可以使用 Visual Basic 的工具箱直接拖拽得到窗口、菜单等对象，然后再在对象的基础上进行编码。</p>
+<p>再比如网页设计工具，1997 年由 Adobe 公司发布的 Dreamweaver，提供了直接拖拽元素，生成网页代码的功能。</p>
+<p>又比如 1999 年由 Sun 公司主导创建的 JSP，把 Java 代码嵌入到 HTML 页面中，动态生成网页内容。</p>
+<p>这些尝试，为自动软件生成系统，积累了大量的成功经验。</p>
+<p>从 2014 年低代码概念的提出，到 2018 年开始，海内外市场开始在低代码上大量投资、研究，如今已经涌现了一批自动生成软件的平台，涉及的知识面深刻且广泛。</p>
+<p>2022 年，作者通过导师接触到一款支持前端页面设计、服务端代码自动生成，自动完成数据库设计等功能的集成开发工具——WIDE（Web Integrated Development Environment）。通过这款工具开发了一款典型的管理系统。</p>
+<p>在导师指导下，作者开始对自动软件生成系统的原理做了一系列的研究与整合，根绝这些原理，作者编写了一些项目。</p>
+<p>这些成果汇总之后，便是如今的选题——自动软件生成系统的研究与实践。</p>
+<h3 id="1.1.3-%E9%80%89%E9%A2%98%E6%B6%89%E5%8F%8A%E7%9F%A5%E8%AF%86%E7%82%B9" tabindex="-1">1.1.3 选题涉及知识点</h3>
+<p>以经典的瀑布模型来看，软件开发工作一般会依次经历以下环节：</p>
+<div class="mermaid">
+flowchart LR
+需求分析 --> 设计 --> 实现 --> 测试 --> 集成 --> 部署 --> 维护
+</div>
+<p>一个自动软件生成系统，代表着这些步骤中，基本能够自动完成。我们也将涉及<strong>除了需求分析、设计之外的所有步骤</strong>。</p>
+<ul>
+<li>
+<p>实现部分，分为前端代码自动生成和后端代码自动生成。</p>
+<ul>
+<li>
+<p>前端代码自动生成，将介绍模板引擎（Template engine）生成代码、JSON 纲要（JSON Schema）校验数据</p>
+</li>
+<li>
+<p>后端代码自动生成，将介绍 BPMN 作为工作流的工具，以及对象关系映射（ORM，Object Relation Mapping）生成 SQL。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>测试部分：介绍单元测试、集成测试和 UI 测试中自动化测试工具的引入。</p>
+</li>
+<li>
+<p>集成和部署部分，介绍自动化的持续集成与持续发布（CI/CD）。</p>
+</li>
+<li>
+<p>维护部分，将介绍业界当今的低代码平台是如何进行维护的。</p>
+</li>
+</ul>
+<p>除以上知识外，我们将会额外介绍一些辅助自动生成软件系统的工具，比如 Prolog，决策树等知识。</p>
+<p>最后，我们将会使用一个成熟的工具，WWIDE，实现一个典型的信息管理系统。该工具集中使用了之前介绍的流程中，提到的各种各样的思想和工具。</p>
+<h2 id="1.2-%E8%AE%BA%E6%96%87%E7%9A%84%E7%BB%93%E6%9E%84%E5%92%8C%E9%87%8D%E7%82%B9" tabindex="-1">1.2 论文的结构和重点</h2>
+<h3 id="1.2.1-%E8%AE%BA%E6%96%87%E7%9A%84%E7%BB%93%E6%9E%84" tabindex="-1">1.2.1 论文的结构</h3>
+<p>论文的结构安排和 1.1.3 节瀑布模型基本对应。</p>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>标题</th>
+<th>主要内容</th>
+<th>关键词</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一</td>
+<td>绪论</td>
+<td>1. 选题的定义、来源和设计知识点&lt;br/&gt;2. 论文的结构和重点&lt;br/&gt;3. 国内外相关理论研究、应用实践&lt;br/&gt;4. 论文的创新之处</td>
+<td>选题&lt;br/&gt;论文</td>
+</tr>
+<tr>
+<td>二</td>
+<td>自动软件生成系统的实现方法</td>
+<td>1. MVC 模型&lt;br/&gt;2. 前端 View——模板引擎和 JSON Schema&lt;br/&gt;3. 后端 Model——BPMN 和 ORM&lt;br/&gt;</td>
+<td>MVC&lt;br/&gt;模板引擎&lt;br/&gt;ORM&lt;br/&gt;BPMN&lt;br/&gt;JSON Schema</td>
+</tr>
+<tr>
+<td>三</td>
+<td>自动化测试</td>
+<td>1. 测试的类型和方法&lt;br/&gt;2. 常见测试工具</td>
+<td>Jest</td>
+</tr>
+<tr>
+<td>四</td>
+<td>自动化集成和部署</td>
+<td>1. 自动化集成和部署的来源&lt;br/&gt;2. GitHub Actions 的使用&lt;br/&gt;3. GitLab 和  Jenkins</td>
+<td>GitHub Actions&lt;br/&gt;GitLab&lt;br/&gt;Jenkins</td>
+</tr>
+<tr>
+<td>五</td>
+<td>自动软件生成系统的维护</td>
+<td>1. 常见的维护方法&lt;br/&gt;</td>
+<td></td>
+</tr>
+<tr>
+<td>六</td>
+<td>自动软件生成系统的其他辅助工具</td>
+<td>1. Prolog</td>
+<td>Prolog</td>
+</tr>
+<tr>
+<td>七</td>
+<td>实践——WIDE 实现典型管理系统</td>
+<td>1. WWIDE 的基础概念&lt;br/&gt;2. 前端设计&lt;br/&gt;3. 后端设计&lt;br/&gt;4. 发布</td>
+<td></td>
+</tr>
+<tr>
+<td>八</td>
+<td>参考文献</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其中，二到六章是理论研究部分，第七章是实践部分。</p>
+<h3 id="1.2.2-%E8%AE%BA%E6%96%87%E7%9A%84%E9%87%8D%E7%82%B9" tabindex="-1">1.2.2 论文的重点</h3>
+<p>由于选题介绍了从设计到维护的所有步骤中，和自动化有关的众多概念，因此必须有所取舍。</p>
+<p>在论文中，分别有理论研究和工程实践两个重点。</p>
+<ul>
+<li>
+<p>理论研究的重点是：第三章《自动软件生成系统的实现方法》</p>
+<p>此部分我们将着重介绍前端代码生成的两种关键技术，并给出应用这些技术实现的应用，包括：</p>
+<ul>
+<li>模板引擎（Template Engine）
+<ul>
+<li>实现一个通过 Markdown 生成 HTML 的博客</li>
+<li>实现一个拖过拖拽生成 HTML 的编辑器</li>
+</ul>
+</li>
+<li>JSON Schema，实现一个通过 JSON 配置生成 HTML 表单的应用</li>
+</ul>
+<p>至于后端代码生成，我们将会介绍 BPMN 工作流和 ORM</p>
+</li>
+<li>
+<p>实践部分的重点是：第八章《WWIDE 实现管理系统》</p>
+<p>此部分我们将使用 WIDE 生成一个学生信息管理系统</p>
+</li>
+</ul>
+<h2 id="1.3-%E5%9B%BD%E5%86%85%E5%A4%96%E7%9B%B8%E5%85%B3%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6%E3%80%81%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5" tabindex="-1">1.3 国内外相关理论研究、应用实践</h2>
+<h3 id="1.3.1-%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6" tabindex="-1">1.3.1 理论研究</h3>
+<h3 id="1.3.2-%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5" tabindex="-1">1.3.2 应用实践</h3>
+<p>简要国内自动软件生成系统一览：</p>
+<p>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;企业&lt;/th&gt;
+&lt;th&gt;链接&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;宜搭&lt;/td&gt;
+&lt;td rowspan=&quot;2&quot;&gt;阿里&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.aliwork.com/&quot;&gt;https://www.aliwork.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;imgCook&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.imgcook.com/&quot;&gt;https://www.imgcook.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;腾讯云微搭&lt;/td&gt;
+&lt;td&gt;腾讯&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://cloud.tencent.com/product/weda&quot;&gt; https://cloud.tencent.com/product/weda&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;简道云&lt;/td&gt;
+&lt;td&gt;帆软软件有限公司&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.jiandaoyun.com/&quot;&gt;https://www.jiandaoyun.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;奥哲·氚云&lt;/td&gt;
+&lt;td&gt;深圳奥哲网络科技有限公司&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://h3yun.com/#/home&quot;&gt;https://h3yun.com/#/home&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;易鲸云&lt;/td&gt;
+&lt;td&gt;北京炎黄盈动科技发展有限公司&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.actionsoft.com.cn/&quot;&gt;https://www.actionsoft.com.cn/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;明道云&lt;/td&gt;
+&lt;td&gt;上海万企明软件有限公司&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.mingdao.com/&quot;&gt;https://www.mingdao.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;IVX&lt;/td&gt;
+&lt;td&gt;深圳市世云新媒体有限公司&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.ivx.cn/&quot;&gt;https://www.ivx.cn/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;amis&lt;/td&gt;
+&lt;td&gt;百度&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://aisuda.bce.baidu.com/amis/zh-CN/docs/index&quot;&gt;https://aisuda.bce.baidu.com/amis/zh-CN/docs/index&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</p>
+<p>简要国外自动软件生成系统：</p>
+<p>&lt;table&gt;
+&lt;tr&gt;
+&lt;th&gt;名称&lt;/th&gt;
+&lt;th&gt;企业&lt;/th&gt;
+&lt;th&gt;链接&lt;/th&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Power Apps&lt;/td&gt;
+&lt;td&gt;Microsoft&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://powerapps.microsoft.com/en-us/&quot;&gt;https://aisuda.bce.baidu.com/amis/zh-CN/docs/index&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;OuterSystems&lt;/td&gt;
+&lt;td&gt;OuterSystems&lt;/td&gt;
+&lt;td&gt;&lt;a href=&quot;https://www.outsystems.com/&quot;&gt;https://www.outsystems.com/&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</p>
+<h2 id="1.3-%E8%AE%BA%E6%96%87%E7%9A%84%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84%E3%80%81%E5%86%85%E5%AE%B9%E5%8F%8A%E6%96%B9%E6%B3%95" tabindex="-1">1.3 论文的研究目的、内容及方法</h2>
+<p>本论文目的在对当前业界自动化代码的方式的原理做一个整合，采取的方法为理论研究 + 工程实践。</p>
+<h2 id="1.4-%E8%AE%BA%E6%96%87%E7%9A%84%E5%88%9B%E6%96%B0%E4%B9%8B%E5%A4%84" tabindex="-1">1.4 论文的创新之处</h2>
+<h1 id="2-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0" tabindex="-1">2 自动化编程实现</h1>
+<h2 id="2.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94mvc-%E6%A8%A1%E5%9E%8B" tabindex="-1">2.1 自动化编程的核心模型——MVC 模型</h2>
+<p>在经典的应用软件中，一般都遵从 MVC 模式（Model View Controller）。</p>
+<ul>
+<li><code>Model</code> 指业务模型，它一般有着最多的处理任务，负责数据的增删改查</li>
+<li><code>View</code> 指用户界面，它负责展示处理过后的数据</li>
+<li><code>Controller</code> 指控制器，它本身不输出任何东西，也不做任何的处理，它知识接受请求并决定调用哪一个 Model 去处理请求</li>
+</ul>
+<p>自动化编程的核心实现，则在于 View 的自动化以及 Model 的自动化，为此我们需要介绍两个关键技术，模板引擎（Template Engine）和对象关系映射（Object Relation Mapping），以及为了限制它们格式请求的一种规范，JSON Schema。</p>
+<h2 id="2.2-view-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%92%8C-json-schema" tabindex="-1">2.2 View 的自动化实现——模板引擎和 JSON Schema</h2>
+<h3 id="2.2.1-%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E" tabindex="-1">2.2.1 模板引擎</h3>
+<h4 id="2.2.1.1-%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86" tabindex="-1">2.2.1.1 实现原理</h4>
+<p>模板引擎，是为了使用户界面与业务数据（内容）分离而产生的。</p>
+<p>通过模板引擎组合模板与数据，就能够生成 HTML 文档。</p>
+<div class="mermaid">
+flowchart LR
+T(模板文件) --> TE(模板引擎)
+D(数据) --> TE(模板引擎)
+TE(模板引擎) --> H(HTML文档)
+</div>
+<p>模板引擎分为很多种，最基础的模板引擎称为<code>置换型模板引擎</code>，它的作用是将特定的标记替换为写好的数据。</p>
+<p>比如，在模板中有这样一段代码：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> template = <span class="hljs-string">&#x27;&lt;p&gt;Hello, my name is &lt;%name%&gt;&lt;/p&gt;&#x27;</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499412-35951">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = '&lt;p&gt;Hello, my name is &lt;%name%&gt;&lt;/p&gt;'
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499412-35951" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>给出的数据如下：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> data = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span> }
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499468-16560">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const data = { name: 'Tom' }
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499468-16560" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>在实际渲染时，要将 template 中的 <code>name</code> 将会被替换，得到</p>
+<pre><code class="hljs language-js"><span class="hljs-string">&#x27;&lt;p&gt;Hello, my name is Tom&lt;/p&gt;&#x27;</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499472-90518">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="'&lt;p&gt;Hello, my name is Tom&lt;/p&gt;'
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499472-90518" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>不考虑性能，完全可以用一个字符串替换的方法，来实现一个最简单的模板引擎：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">engine</span> (template, data) {
+  <span class="hljs-keyword">const</span> result = template.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">match, key</span>) {
+    <span class="hljs-keyword">return</span> data[key]    
+  })
+  <span class="hljs-keyword">return</span> result
+}
+
+<span class="hljs-keyword">const</span> template = <span class="hljs-string">&#x27;&lt;p&gt;Hello, my name is &lt;%name%&gt;&lt;/p&gt;&#x27;</span>
+<span class="hljs-keyword">const</span> data = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span> }
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">engine</span>(template, data))
+<span class="hljs-comment">// 结果为: &lt;p&gt;Hello, my name is Tom&lt;/p&gt;</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499473-47817">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="function engine (template, data) {
+  const result = template.replace(/&lt;%([^%&gt;]+)?%&gt;/g, function (match, key) {
+    return data[key]    
+  })
+  return result
+}
+
+const template = '&lt;p&gt;Hello, my name is &lt;%name%&gt;&lt;/p&gt;'
+const data = { name: 'Tom' }
+
+console.log(engine(template, data))
+// 结果为: &lt;p&gt;Hello, my name is Tom&lt;/p&gt;
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499473-47817" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>然而，以上的代码仅能针对简单的对象，而对于复杂的嵌套对象，比如：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,
+  <span class="hljs-attr">institution</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;MIT&#x27;</span>,
+    <span class="hljs-attr">address</span>: <span class="hljs-string">&#x27;United States&#x27;</span>
+  }
+}
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499500-54172">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
+  name: 'Tom',
+  institution: {
+    name: 'MIT',
+    address: 'United States'
+  }
+}
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499500-54172" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>要在模板中被这样使用：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> template = <span class="hljs-string">`
+  &lt;p&gt;
+  Hello, my name is &lt;%name%&gt;, 
+  I&#x27;m from &lt;%institution.name%&gt; in the &lt;%institution.address%&gt;
+  &lt;/p&gt;
+`</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499501-77898">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = `
+  &lt;p&gt;
+  Hello, my name is &lt;%name%&gt;, 
+  I'm from &lt;%institution.name%&gt; in the &lt;%institution.address%&gt;
+  &lt;/p&gt;
+`
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499501-77898" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>此时已经无法直接使用字符串替换来完成工作，此时一个办法就是在 <code>&lt;%</code> 和 <code>%&gt;</code> 直接使用 JavaScript 代码。</p>
+<p>能完成只要的工作，是因为 JavaScript 是可以直接根据字符串来创建一个函数的，比如：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> sum = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;return a + b&#x27;</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">sum</span>(<span class="hljs-number">2</span>, <span class="hljs-number">6</span>))
+<span class="hljs-comment">// 结果为: 8</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499502-75224">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const sum = new Function('a', 'b', 'return a + b')
+console.log(sum(2, 6))
+// 结果为: 8
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499502-75224" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>因此单独针对一个变量，对于上述模板，我们只需要将 <code>&lt;%</code> 和 <code>%&gt;</code> 中央的内容当作返回值传递出来。</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,
+  <span class="hljs-attr">institution</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;MIT&#x27;</span>,
+    <span class="hljs-attr">address</span>: <span class="hljs-string">&#x27;United States&#x27;</span>
+  }
+}
+<span class="hljs-keyword">const</span> fn = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;obj&#x27;</span>, <span class="hljs-string">&#x27;return obj.institution.address&#x27;</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">fn</span>(user))
+<span class="hljs-comment">// 结果为: United States</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499506-68581">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
+  name: 'Tom',
+  institution: {
+    name: 'MIT',
+    address: 'United States'
+  }
+}
+const fn = new Function('obj', 'return obj.institution.address')
+console.log(fn(user))
+// 结果为: United States
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499506-68581" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>现在针对这个模板，我们可以这样做</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,
+  <span class="hljs-attr">institution</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;MIT&#x27;</span>,
+    <span class="hljs-attr">address</span>: <span class="hljs-string">&#x27;United States&#x27;</span>
+  }
+}
+<span class="hljs-keyword">const</span> arr = []
+arr.<span class="hljs-title function_">push</span>(<span class="hljs-string">`&lt;p&gt;Hello, my name is `</span>)
+arr.<span class="hljs-title function_">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;obj&#x27;</span>, <span class="hljs-string">&#x27;return obj.name&#x27;</span>).<span class="hljs-title function_">call</span>(user, user))
+arr.<span class="hljs-title function_">push</span>(<span class="hljs-string">`, I&#x27;m from `</span>)
+arr.<span class="hljs-title function_">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;obj&#x27;</span>, <span class="hljs-string">&#x27;return obj.institution.name&#x27;</span>).<span class="hljs-title function_">call</span>(user, user))
+arr.<span class="hljs-title function_">push</span>(<span class="hljs-string">` in the `</span>)
+arr.<span class="hljs-title function_">push</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;obj&#x27;</span>, <span class="hljs-string">&#x27;return obj.institution.address&#x27;</span>).<span class="hljs-title function_">call</span>(user, user))
+arr.<span class="hljs-title function_">push</span>(<span class="hljs-string">`&lt;/p&gt;`</span>)
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(arr.<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>))
+<span class="hljs-comment">// 结果为:</span>
+<span class="hljs-comment">// &lt;p&gt;</span>
+<span class="hljs-comment">// Hello, my name is Tom, </span>
+<span class="hljs-comment">// I&#x27;m from MIT in the United States</span>
+<span class="hljs-comment">// &lt;/p&gt;</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499512-91484">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
+  name: 'Tom',
+  institution: {
+    name: 'MIT',
+    address: 'United States'
+  }
+}
+const arr = []
+arr.push(`&lt;p&gt;Hello, my name is `)
+arr.push(new Function('obj', 'return obj.name').call(user, user))
+arr.push(`, I'm from `)
+arr.push(new Function('obj', 'return obj.institution.name').call(user, user))
+arr.push(` in the `)
+arr.push(new Function('obj', 'return obj.institution.address').call(user, user))
+arr.push(`&lt;/p&gt;`)
+console.log(arr.join(''))
+// 结果为:
+// &lt;p&gt;
+// Hello, my name is Tom, 
+// I'm from MIT in the United States
+// &lt;/p&gt;
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499512-91484" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>为此，我们可以专门写一个 engine 函数，</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> template = <span class="hljs-string">`
+  &lt;p&gt;
+  Hello, my name is &lt;%name%&gt;, 
+  I&#x27;m from &lt;%institution.name%&gt; in the &lt;%institution.address%&gt;
+  &lt;/p&gt;
+`</span>
+
+<span class="hljs-keyword">const</span> user = {
+  <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,
+  <span class="hljs-attr">institution</span>: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;MIT&#x27;</span>,
+    <span class="hljs-attr">address</span>: <span class="hljs-string">&#x27;United States&#x27;</span>
+  }
+}
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">engine</span> (template, data) {
+  <span class="hljs-keyword">const</span> reg = <span class="hljs-regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>
+  <span class="hljs-keyword">let</span> result = <span class="hljs-string">&#x27;&#x27;</span>
+  <span class="hljs-keyword">let</span> cursor = <span class="hljs-number">0</span>
+  <span class="hljs-keyword">let</span> match
+  <span class="hljs-keyword">while</span> (match = reg.<span class="hljs-title function_">exec</span>(template)) {
+    result += template.<span class="hljs-title function_">slice</span>(cursor, match.<span class="hljs-property">index</span>)	<span class="hljs-comment">// 非 &lt;% %&gt; 包裹部分</span>
+    result += <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;obj&#x27;</span>, <span class="hljs-string">`return obj.<span class="hljs-subst">${match[<span class="hljs-number">1</span>]}</span>`</span>).<span class="hljs-title function_">call</span>(data, data)
+    cursor = match.<span class="hljs-property">index</span> + match[<span class="hljs-number">0</span>].<span class="hljs-property">length</span>
+  }
+  result += template.<span class="hljs-title function_">substr</span>(cursor, template.<span class="hljs-property">length</span> - cursor)
+  <span class="hljs-keyword">return</span> result
+}
+
+<span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">engine</span>(template, user))
+<span class="hljs-comment">// 结果为: </span>
+<span class="hljs-comment">// &lt;p&gt;</span>
+<span class="hljs-comment">// Hello, my name is Tom, </span>
+<span class="hljs-comment">// I&#x27;m from MIT in the United States</span>
+<span class="hljs-comment">// &lt;/p&gt;</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499524-66648">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = `
+  &lt;p&gt;
+  Hello, my name is &lt;%name%&gt;, 
+  I'm from &lt;%institution.name%&gt; in the &lt;%institution.address%&gt;
+  &lt;/p&gt;
+`
+
+const user = {
+  name: 'Tom',
+  institution: {
+    name: 'MIT',
+    address: 'United States'
+  }
+}
+
+function engine (template, data) {
+  const reg = /&lt;%([^%&gt;]+)?%&gt;/g
+  let result = ''
+  let cursor = 0
+  let match
+  while (match = reg.exec(template)) {
+    result += template.slice(cursor, match.index)	// 非 &lt;% %&gt; 包裹部分
+    result += new Function('obj', `return obj.${match[1]}`).call(data, data)
+    cursor = match.index + match[0].length
+  }
+  result += template.substr(cursor, template.length - cursor)
+  return result
+}
+
+console.log(engine(template, user))
+// 结果为: 
+// &lt;p&gt;
+// Hello, my name is Tom, 
+// I'm from MIT in the United States
+// &lt;/p&gt;
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499524-66648" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>还有更多的东西，比如在模板引擎中，出现了 for 语句或者 if 语句等等</p>
+<h4 id="2.2.1.2-%E5%88%86%E7%B1%BB" tabindex="-1">2.2.1.2 分类</h4>
+<p>基本每一个可以写 Web 应用的语言，都有着自己的模板引擎。比如：</p>
+<p>Java 的 jsp，thymeleaf，freemarker，我们这里主要介绍 JavaScript 的模板引擎</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>出品公司</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nunjucks</td>
+<td>mozilla</td>
+</tr>
+<tr>
+<td>ejs</td>
+<td></td>
+</tr>
+<tr>
+<td>pug（原名 Jade）</td>
+<td></td>
+</tr>
+<tr>
+<td>mustache</td>
+<td></td>
+</tr>
+<tr>
+<td>handlebars</td>
+<td></td>
+</tr>
+<tr>
+<td>art-template</td>
+<td></td>
+</tr>
+<tr>
+<td>lodash template</td>
+<td></td>
+</tr>
+<tr>
+<td>ES6 template string</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="2.2.1.3-%E5%AE%9E%E4%BE%8B%E4%B8%80%E2%80%94%E2%80%94%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2" tabindex="-1">2.2.1.3 实例一——静态博客</h4>
+<p>一个一直存在的，但是很容易被忽略的例子，就是静态博客框架。</p>
+<p>比如你可以访问我在网页上的这篇博客，就是我通过自己实现的自动生成博客的代码生成的。</p>
+<p>目前这类框架也有很多，比如：</p>
+<ul>
+<li>Hexo</li>
+<li>VuePress</li>
+<li>Hugo</li>
+<li>Jekyll</li>
+<li>GitBook</li>
+<li>Dosify</li>
+<li>Nuxt</li>
+</ul>
+<p>等，这些细节各有不同，但我们只选取重要的公用部分，来解释以下它们是如何利用模板引擎来自动生成代码的。</p>
+<p>首先我们要区分，在生成静态博客的过程中，模板和数据，分别是什么。</p>
+<p>以我自己实现的自动化静态博客为例，每当我新编写一篇文章，运行打包命令后，会相应地生成这篇文章的 html 版本。</p>
+<p>模板，就是公用的，基本不会改变的 html 文件，比如目前的博客，公用的模板文件为：</p>
+<pre><code class="hljs language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>博客<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/static/github-markdown.css&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;/static/github.css&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="language-css">
+  <span class="hljs-selector-class">.markdown-body</span> {
+    <span class="hljs-attribute">box-sizing</span>: border-box;
+    <span class="hljs-attribute">min-width</span>: <span class="hljs-number">200px</span>;
+    <span class="hljs-attribute">max-width</span>: <span class="hljs-number">980px</span>;
+    <span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span> auto;
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">45px</span>;
+  }
+  
+  <span class="hljs-keyword">@media</span> (<span class="hljs-attribute">max-width</span>: <span class="hljs-number">767px</span>) {
+    <span class="hljs-selector-class">.markdown-body</span> {
+    <span class="hljs-attribute">padding</span>: <span class="hljs-number">15px</span>;
+    }
+  }
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript">mermaid.<span class="hljs-title function_">initialize</span>({<span class="hljs-attr">startOnLoad</span>:<span class="hljs-literal">true</span>});</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">article</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;markdown-body&quot;</span>&gt;</span>
+  {{@htmlContent}}
+  <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499546-59938">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;博客&lt;/title&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/github-markdown.css&quot;&gt;
+  &lt;link rel=&quot;stylesheet&quot; href=&quot;/static/github.css&quot;&gt;
+  &lt;style&gt;
+  .markdown-body {
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 45px;
+  }
+  
+  @media (max-width: 767px) {
+    .markdown-body {
+    padding: 15px;
+    }
+  }
+  &lt;/style&gt;
+  &lt;script src=&quot;https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;mermaid.initialize({startOnLoad:true});&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;article class=&quot;markdown-body&quot;&gt;
+  {{@htmlContent}}
+  &lt;/article&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499546-59938" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>这里在 article 部分，有一个 <code>{{@htmlContent}}</code>，它就是我们需要的数据。</p>
+<p>我们的数据，是读取 markdown 文件，然后通过编译转换为 html 标签的。典型的对应关系如下：</p>
+<table>
+<thead>
+<tr>
+<th>markdown 标签</th>
+<th>html 标签</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>#</code></td>
+<td><code>h1</code></td>
+</tr>
+<tr>
+<td><code>##</code></td>
+<td><code>h2</code></td>
+</tr>
+<tr>
+<td><code>###</code></td>
+<td><code>h3</code></td>
+</tr>
+<tr>
+<td><code>####</code></td>
+<td><code>h4</code></td>
+</tr>
+<tr>
+<td><code>#####</code></td>
+<td><code>h5</code></td>
+</tr>
+<tr>
+<td><code>######</code></td>
+<td><code>h6</code></td>
+</tr>
+<tr>
+<td><code>-</code> 或 <code>+</code> 或 <code>*</code></td>
+<td><code>ul</code> 或 <code>li</code></td>
+</tr>
+<tr>
+<td><code>---</code></td>
+<td><code>hr</code></td>
+</tr>
+<tr>
+<td>&lt;code&gt;```&lt;/code&gt;</td>
+<td><code>pre</code> + <code>code</code></td>
+</tr>
+</tbody>
+</table>
+<p>在数据部分我们使用了 <code>markdown-it</code> 这个库，将 markdown 文件进行转换，生成 html 标签部分，这部分标签又被作为数据，塞到了我们的模板下面。</p>
+<p>完成这个过程的 node.js 代码如下所示：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> {
+  readdirSync,
+  statSync,
+  writeFileSync,
+  readFileSync,
+  mkdirSync,
+  existsSync
+} = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)
+<span class="hljs-keyword">const</span> path = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;path&#x27;</span>)
+<span class="hljs-keyword">const</span> process = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;process&#x27;</span>)
+<span class="hljs-keyword">const</span> template = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;art-template&#x27;</span>)
+<span class="hljs-keyword">const</span> hljs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;highlight.js&#x27;</span>)
+<span class="hljs-keyword">const</span> md = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;markdown-it&#x27;</span>)({
+  <span class="hljs-attr">highlight</span>: <span class="hljs-function">(<span class="hljs-params">str, lang</span>) =&gt;</span> {
+  <span class="hljs-keyword">if</span> (lang &amp;&amp; hljs.<span class="hljs-title function_">getLanguage</span>(lang)) {
+    <span class="hljs-keyword">try</span> {
+    <span class="hljs-keyword">return</span> <span class="hljs-string">`&lt;pre&gt;&lt;code class=&quot;hljs language-<span class="hljs-subst">${lang}</span>&quot;&gt;`</span> +
+    hljs.<span class="hljs-title function_">highlight</span>(str, { <span class="hljs-attr">language</span>: lang }).<span class="hljs-property">value</span> +
+    <span class="hljs-string">`&lt;/code&gt;&lt;/pre&gt;`</span>;
+    } <span class="hljs-keyword">catch</span> (__) { }
+  }
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;&#x27;</span>
+  }
+})
+
+<span class="hljs-keyword">const</span> <span class="hljs-title function_">generateHtml</span> = (<span class="hljs-params">dirPath</span>) =&gt; {
+  <span class="hljs-comment">// 根据路径读取文件, 返回文件列表</span>
+  <span class="hljs-keyword">const</span> names = <span class="hljs-title function_">readdirSync</span>(dirPath)
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; names.<span class="hljs-property">length</span>; i++) {
+  <span class="hljs-keyword">const</span> itemPath = path.<span class="hljs-title function_">join</span>(dirPath, names[i])
+  <span class="hljs-comment">// 是文件</span>
+  <span class="hljs-keyword">if</span> (<span class="hljs-title function_">statSync</span>(itemPath).<span class="hljs-title function_">isFile</span>()) {
+    <span class="hljs-keyword">const</span> newDirPath = dirPath.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;post&#x27;</span>, <span class="hljs-string">&#x27;dist&#x27;</span>)
+    <span class="hljs-keyword">const</span> newItemPath = itemPath.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;post&#x27;</span>, <span class="hljs-string">&#x27;dist&#x27;</span>).<span class="hljs-title function_">replace</span>(<span class="hljs-string">&#x27;md&#x27;</span>, <span class="hljs-string">&#x27;html&#x27;</span>)
+    <span class="hljs-keyword">if</span> (!<span class="hljs-title function_">existsSync</span>(newDirPath)) {
+    <span class="hljs-title function_">mkdirSync</span>(newDirPath)
+    }
+    <span class="hljs-keyword">const</span> mdContent = <span class="hljs-title function_">readFileSync</span>(itemPath, <span class="hljs-string">&#x27;utf-8&#x27;</span>)
+    <span class="hljs-keyword">const</span> htmlContent = md.<span class="hljs-title function_">render</span>(mdContent)
+    <span class="hljs-keyword">const</span> templateContent = <span class="hljs-title function_">readFileSync</span>(path.<span class="hljs-title function_">join</span>(process.<span class="hljs-title function_">cwd</span>(), <span class="hljs-string">&#x27;static/template.html&#x27;</span>), <span class="hljs-string">&#x27;utf-8&#x27;</span>)
+    <span class="hljs-keyword">const</span> generation = template.<span class="hljs-title function_">render</span>(templateContent, {
+    htmlContent
+    })
+    <span class="hljs-title function_">writeFileSync</span>(newItemPath, generation, <span class="hljs-string">&#x27;utf-8&#x27;</span>)
+    <span class="hljs-keyword">return</span>
+  }
+  <span class="hljs-comment">// 是文件夹</span>
+  <span class="hljs-title function_">generateHtml</span>(itemPath)
+  }
+}
+
+<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-comment">// 处理 css 和 img 等静态资源, 方法是直接拷贝一份</span>
+  <span class="hljs-keyword">const</span> staticPath = path.<span class="hljs-title function_">join</span>(pwd.<span class="hljs-title function_">join</span>(process.<span class="hljs-title function_">cwd</span>()))
+  <span class="hljs-title function_">generateHtml</span>(path.<span class="hljs-title function_">join</span>(process.<span class="hljs-title function_">cwd</span>(), <span class="hljs-string">&#x27;post&#x27;</span>))
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;build finish&#x27;</span>)
+}
+
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499640-23262">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const {
+  readdirSync,
+  statSync,
+  writeFileSync,
+  readFileSync,
+  mkdirSync,
+  existsSync
+} = require('fs')
+const path = require('path')
+const process = require('process')
+const template = require('art-template')
+const hljs = require('highlight.js')
+const md = require('markdown-it')({
+  highlight: (str, lang) =&gt; {
+  if (lang && hljs.getLanguage(lang)) {
+    try {
+    return `&lt;pre&gt;&lt;code class=&quot;hljs language-${lang}&quot;&gt;` +
+    hljs.highlight(str, { language: lang }).value +
+    `&lt;/code&gt;&lt;/pre&gt;`;
+    } catch (__) { }
+  }
+  return ''
+  }
+})
+
+const generateHtml = (dirPath) =&gt; {
+  // 根据路径读取文件, 返回文件列表
+  const names = readdirSync(dirPath)
+  for (let i = 0; i &lt; names.length; i++) {
+  const itemPath = path.join(dirPath, names[i])
+  // 是文件
+  if (statSync(itemPath).isFile()) {
+    const newDirPath = dirPath.replace('post', 'dist')
+    const newItemPath = itemPath.replace('post', 'dist').replace('md', 'html')
+    if (!existsSync(newDirPath)) {
+    mkdirSync(newDirPath)
+    }
+    const mdContent = readFileSync(itemPath, 'utf-8')
+    const htmlContent = md.render(mdContent)
+    const templateContent = readFileSync(path.join(process.cwd(), 'static/template.html'), 'utf-8')
+    const generation = template.render(templateContent, {
+    htmlContent
+    })
+    writeFileSync(newItemPath, generation, 'utf-8')
+    return
+  }
+  // 是文件夹
+  generateHtml(itemPath)
+  }
+}
+
+module.exports = () =&gt; {
+  // 处理 css 和 img 等静态资源, 方法是直接拷贝一份
+  const staticPath = path.join(pwd.join(process.cwd()))
+  generateHtml(path.join(process.cwd(), 'post'))
+  console.log('build finish')
+}
+
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499640-23262" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>可以看到，我们会读取 post 下的文章，然后对每一个 markdown 文件，我们都先使用 <code>markdown-it</code> 的 <code>render</code> 方法，生成了 html 标签；接着我们把这些标签，给放到 template 的 render 方法中，它会把我们之前的 <code>{{@htmlContent}}</code> 给替换掉。</p>
+<p>至于具体的代码，可以到 GitHub 上去看完整的实现。</p>
+<h4 id="2.2.1.4-%E5%AE%9E%E4%BE%8B%E4%BA%8C%E2%80%94%E2%80%94%E6%8B%96%E6%8B%BD%E7%94%9F%E6%88%90-html" tabindex="-1">2.2.1.4 实例二——拖拽生成 HTML</h4>
+<p>在自动化生成网页方面，有一种方式叫作可视化搭建，可以通过进行拖拽页面模块，实现过程的可视化。</p>
+<p>其实在网页的可视化搭建，有着比较成熟的历史，比如 1997 年 Adobe 发布了 Dreamweaver，Dreamweaver 便提供了拖拽生成代码的功能。</p>
+<p>随着网页的逐渐复杂化，原本 Dreamweaver 的方式已经不再适应现代项目的需求，所以被渐渐取代了。但快速生成项目代码的诉求从未消失，拖拽方式一直存在。</p>
+<p>比如我们常用的网页绘图工具，Process On，能够让人在左侧选择对应的图形，然后在右侧实现图像的布局。</p>
+<p>近些年来，随着前端组件化开发的兴起，还有工程经验地总结，人们逐渐发现，可以将组件封装得更加负责。然后造高度定制化的场景中，使用拖拽方式能够大幅提高效率。</p>
+<p>其中一个典型场景就是在 PC 的中后台系统（例如员工信息管理等平台），它们具备如下特定：</p>
+<ul>
+<li>整体 UI 风格统一</li>
+<li>涉及统一的增删改查等</li>
+</ul>
+<p>我实现了可视化的组件搭建系统，你可以通过这个网址进行访问：http://lowcode.lijunlin.xyz</p>
+<h5 id="2.2.1.4.1-%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E5%85%B8%E5%9E%8B%E6%96%B9%E5%BC%8F" tabindex="-1">2.2.1.4.1 可视化的典型方式</h5>
+<p>可视化生成代码，根本原理和模板引擎其实类似，都是模板 + 数据生成代码。只是数据，则是通过拖拽的位置来确定的。</p>
+<p>以我编写的可视化组件搭建系统为例，整个可视化可以分为四个区域：</p>
+<p>&lt;table&gt;
+&lt;tr&gt;
+&lt;td rowspan=&quot;2&quot; style=&quot;background: #fbd3d0&quot;&gt;物料区&lt;/td&gt;
+&lt;td colspan=&quot;2&quot; style=&quot;background: #f7e9bc&quot;&gt;操作区&lt;/td&gt;
+&lt;td rowspan=&quot;2&quot; style=&quot;background: #ceebd2&quot;&gt;属性区&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td rowspan=&quot;1&quot; colspan=&quot;1&quot; style=&quot;background: #c4e4f5&quot;&gt;效果区&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;</p>
+<ul>
+<li>物料区，放置着各种各样的组件</li>
+<li>效果区，预览拖拽之后渲染的效果</li>
+<li>操作区，点击进行回退</li>
+<li>属性区，选中效果区的组件之后，可以在右侧修改属性</li>
+</ul>
+<h5 id="2.2.1.4.2-%E6%95%88%E6%9E%9C%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%A0%B7%E5%BC%8F" tabindex="-1">2.2.1.4.2 效果区域的样式</h5>
+<p>效果区域的所有样式，均是组件的行内样式，比如要设置一个如下样式的方块：</p>
+<p>&lt;div style=&quot;width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;&quot;&gt;这是一个方块&lt;/div&gt;</p>
+<pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;&quot;</span>&gt;</span>这是一个方块<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499656-15142">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;div style=&quot;width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;&quot;&gt;这是一个方块&lt;/div&gt;
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499656-15142" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<h5 id="2.2.1.4.3-%E6%95%88%E6%9E%9C%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%AE%9A%E4%BD%8D" tabindex="-1">2.2.1.4.3 效果区域的定位</h5>
+<p>如果要进行像素级定位，则需要给容器 <code>style</code> 设置 <code>position</code> 为 <code>relative</code>，给组件的 <code>style</code> 设置 <code>position</code> 为 <code>absolute</code>，这样对于容器内渲染的组件，则是用 <code>top</code> 和 <code>left</code> 来确定位置。</p>
+<h5 id="2.2.1.4.4-%E6%95%88%E6%9E%9C%E5%8C%BA%E5%9F%9F%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AF%BC%E5%87%BA" tabindex="-1">2.2.1.4.4 效果区域代码的导出</h5>
+<p>关于导出代码，我们获取到容器的 DOM 元素，然后将其渲染成功的 html 标签作为数据，配合好之前准备的 HTML 模板，则可以实现效果区域代码的导出。</p>
+<h3 id="2.2.2-json-schema" tabindex="-1">2.2.2 JSON Schema</h3>
+<p>一般情况下，为了连接前端代码和后端代码，我们会采取 JSON 作为数据交换的格式。</p>
+<p>JSON 是一种非常通用的办法，非常适合人类可读和存储，还有机器处理。但是因为 JSON 的格式非常自由，会导致格式可能非常自由而没有办法对接。</p>
+<p>JSON Schema 是基于 JSON 本身的格式，规范定义了 JSON。它是在 IETF（互联网工程任务组）下编写和起草的。</p>
+<h4 id="2.2.2.1-json-schema-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E4%BD%9C%E7%94%A8" tabindex="-1">2.2.2.1 JSON Schema 的定义和作用</h4>
+<p>JSON Schema 是用来定义 JSON 和校验数据的。所谓的定义和校验 JSON 数据，就是用 JSON 本身告诉我们，想要的数据结构应该是怎样的。</p>
+<p>我们可以访问 JSON Schema 的官网，http://json-schema.org/，这里展示了 JSON Schema 的草案。这个网站对 JSON Schema 每个字段的定义，以及实现方式都做了详细的说明。</p>
+<p>举例来说，我们以 JSON 格式定义一段数据如下：</p>
+<pre><code class="hljs language-js">{
+  <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;string&quot;</span>,
+  <span class="hljs-attr">minLength</span>: <span class="hljs-number">10</span>
+}
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499657-12580">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="{
+  type: &quot;string&quot;,
+  minLength: 10
+}
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499657-12580" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>这便是要求一段数据，它的类型必须是字符串，且最小长度为 10。</p>
+<p>这样严格的校验，有什么作用呢？</p>
+<p><mark>JSON Schema 不仅可以定义和校验前端，也可以定义校验后端</mark>。这让前后端对接接口时，变得非常规范和容易，还能方便测试。</p>
+<h4 id="2.2.2.2-json-schema-%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D" tabindex="-1">2.2.2.2 JSON Schema 的基本介绍</h4>
+<p>JSON Schema 的数据类型分为：</p>
+<ul>
+<li><code>number</code>，数字类型，比如 1 和 1.5</li>
+<li><code>integer</code>，整数类型，比如 2</li>
+<li><code>string</code>，字符串类型，比如 “Hello”</li>
+<li><code>boolen</code>，布尔类型，比如 false</li>
+<li><code>array</code>，数组类型，比如 <code>[1, 2, 3]</code></li>
+<li><code>object</code> ，对象类型，比如 <code>{ name: &quot;Tom&quot;，age: 20 }</code></li>
+<li><code>null</code></li>
+</ul>
+<p>对每种类型，JSON Schema 都有不同的关键字对其进行限制，比如 <code>number</code> 类型的部分关键字列举如下：</p>
+<ul>
+<li>
+<p><code>maximum</code>，代表能取到的最大值（包含最大值本身）</p>
+<p>比如 <code>{ type: &quot;number&quot;, maximum: 5 }</code>，取 <code>5</code> 就合法，取 <code>6</code> 就非法</p>
+</li>
+<li>
+<p><code>minimum</code>，代表能取的最小值</p>
+</li>
+<li>
+<p><code>exclusiveMaximum</code>，代表能取到的最大值（不包含最大值本身）</p>
+<p>比如 <code>{ type: &quot;number&quot;, exclusiveMaximum: 5 }</code>，取 <code>4</code> 就合法，取 <code>5</code> 就非法</p>
+</li>
+<li>
+<p><code>exclusiveMinimum</code>，代表能取到的最小值（不包含最小值本身）</p>
+</li>
+</ul>
+<p>至于其他关键词和校验规则，可以自行到 JSON Schema 的草案上查阅。</p>
+<h4 id="2.2.2.3-ajv%EF%BC%8C%E4%B8%80%E4%B8%AA-json-schema-%E7%9A%84%E6%A0%A1%E9%AA%8C%E5%BA%93" tabindex="-1">2.2.2.3 AJV，一个 JSON Schema 的校验库</h4>
+<p>AJV 是实现了 JSON Schema 的库，可以帮助我们校验 JSON 数据。</p>
+<p>简单的使用方法如下：</p>
+<ul>
+<li>安装</li>
+</ul>
+<pre><code>npm install ajv
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499659-16628">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="npm install ajv
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499659-16628" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<ul>
+<li>示例</li>
+</ul>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> <span class="hljs-title class_">Ajv</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;ajv&#x27;</span>)
+
+<span class="hljs-keyword">const</span> schema = {
+  <span class="hljs-attr">type</span>: <span class="hljs-string">&#x27;string&#x27;</span>,
+  <span class="hljs-attr">minLength</span>: <span class="hljs-number">10</span>
+}
+
+<span class="hljs-keyword">const</span> ajv = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Ajv</span>()
+<span class="hljs-keyword">const</span> validate = ajv.<span class="hljs-title function_">compile</span>(schema)
+<span class="hljs-keyword">const</span> valid = <span class="hljs-title function_">validate</span>(<span class="hljs-string">&#x27;hello&#x27;</span>)
+<span class="hljs-keyword">if</span> (!valid) {
+  <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(validate.<span class="hljs-property">errors</span>)
+}
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499659-73398">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const Ajv = require('ajv')
+
+const schema = {
+  type: 'string',
+  minLength: 10
+}
+
+const ajv = new Ajv()
+const validate = ajv.compile(schema)
+const valid = validate('hello')
+if (!valid) {
+  console.log(validate.errors)
+}
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499659-73398" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>使用 node 运行上述代码，结果为</p>
+<pre><code class="hljs language-js">[
+  {
+    <span class="hljs-attr">keyword</span>: <span class="hljs-string">&#x27;minLength&#x27;</span>,
+    <span class="hljs-attr">detaPath</span>: <span class="hljs-string">&#x27;&#x27;</span>,
+    <span class="hljs-attr">schemaPath</span>: <span class="hljs-string">&#x27;#/minLength&#x27;</span>,
+    <span class="hljs-attr">params</span>: { <span class="hljs-attr">limit</span>: <span class="hljs-number">10</span> },
+    <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;should NOT be shorter than 10 characters&#x27;</span>
+  }
+]
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499661-11556">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="[
+  {
+    keyword: 'minLength',
+    detaPath: '',
+    schemaPath: '#/minLength',
+    params: { limit: 10 },
+    message: 'should NOT be shorter than 10 characters'
+  }
+]
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499661-11556" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>这段结果的意思很好理解，我们定义了字符串的长度必须是 10，但是我们传进去的字符串 &quot;Hello&quot; 的长度只是 5，这是不符合要求的，因此会给我们输出错误信息。</p>
+<h4 id="2.2.2.4-%E4%BD%BF%E7%94%A8-json-schema-%E9%85%8D%E7%BD%AE%E7%94%9F%E6%88%90%E8%A1%A8%E5%8D%95" tabindex="-1">2.2.2.4 使用 JSON Schema 配置生成表单</h4>
+<p>具体的实例，作者部署到自己的服务器了，可以到 http://json-schema-form.lijunlin.xyz 查看。</p>
+<h5 id="2.2.2.4.1-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95" tabindex="-1">2.2.2.4.1 使用方法</h5>
+<p>这个例子使用 Vue 框架实现，它的核心用法如下：</p>
+<pre><code class="hljs language-jsx">&lt;<span class="hljs-title class_">JsonSchemaForm</span>
+  schema={schema}
+  value={value}
+  onChange={onChange}
+  locale={locale}
+  contextRef={ctxRef}
+  uiSchema={uiSchema}
+/&gt;
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499663-95022">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;JsonSchemaForm
+  schema={schema}
+  value={value}
+  onChange={onChange}
+  locale={locale}
+  contextRef={ctxRef}
+  uiSchema={uiSchema}
+/&gt;
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499663-95022" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>其中，传递的 6 个参数解释如下：</p>
+<ul>
+<li><code>schema</code>，定义了表单需要的数据和数据格式</li>
+<li><code>value</code>，代表表单的数据，当用户输入时，可以改变 <code>value</code></li>
+<li><code>onChange</code>，<code>value</code> 的值发生任何变化时，都会触发此函数</li>
+<li><code>locale</code>，代表校验错误的时候，需要显示的提示信息</li>
+<li><code>contextRef</code>，外界需要调用 <code>JsonSchemaForm</code> 内部校验方法时，需要借助它来主动调用</li>
+<li><code>uiSchema</code>，定义了表单的一些样式</li>
+</ul>
+<h5 id="2.2.2.4.2-%E5%85%B7%E4%BD%93%E5%8E%9F%E7%90%86" tabindex="-1">2.2.2.4.2 具体原理</h5>
+<p>配置生成表单，其具体原理就是一一对应的映射</p>
+<ul>
+<li><code>{ type: 'string' }</code> 对应组件 <code>&lt;StringField /&gt;</code></li>
+<li><code>{ type: 'number' }</code> 对应组件 <code>&lt;NumberField /&gt;</code></li>
+<li><code>{ type: 'object' }</code> 对应组件 <code>&lt;ObjectField /&gt;</code></li>
+<li><code>{ type: 'array' }</code>   对应组件 <code>&lt;ArraryField /&gt;</code></li>
+</ul>
+<p>以上所有的组件都是通过 <code>&lt;SchemaItem /&gt;</code> 转发的：</p>
+<pre><code class="hljs language-jsx"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-title function_">defineComponent</span>({
+  <span class="hljs-comment">// ...</span>
+  setup () {
+    <span class="hljs-keyword">return</span> <span class="hljs-function">() =&gt;</span> {
+      <span class="hljs-keyword">const</span> { schem } = props
+      <span class="hljs-keyword">const</span> { type } = schema.<span class="hljs-property">type</span>
+      <span class="hljs-keyword">let</span> <span class="hljs-title class_">Component</span>
+      <span class="hljs-keyword">switch</span> (type) {
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;string&#x27;</span>: {
+          <span class="hljs-title class_">Component</span> = <span class="hljs-title class_">StringField</span>
+          <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;number&#x27;</span>: {
+          <span class="hljs-title class_">Component</span> = <span class="hljs-title class_">NumberField</span>
+          <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;object&#x27;</span>: {
+          <span class="hljs-title class_">Component</span> = <span class="hljs-title class_">ObjectField</span>
+          <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;array&#x27;</span>: {
+          <span class="hljs-title class_">Component</span> = <span class="hljs-title class_">ArrayField</span>
+          <span class="hljs-keyword">break</span>
+        }
+        <span class="hljs-keyword">return</span> <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">Component</span> {<span class="hljs-attr">...props</span>} /&gt;</span></span>
+      }
+    }   
+  }
+})
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499664-22091">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="export default defineComponent({
+  // ...
+  setup () {
+    return () =&gt; {
+      const { schem } = props
+      const { type } = schema.type
+      let Component
+      switch (type) {
+        case 'string': {
+          Component = StringField
+          break
+        }
+        case 'number': {
+          Component = NumberField
+          break
+        }
+        case 'object': {
+          Component = ObjectField
+          break
+        }
+        case 'array': {
+          Component = ArrayField
+          break
+        }
+        return &lt;Component {...props} /&gt;
+      }
+    }   
+  }
+})
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499664-22091" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>由于 <code>&lt;ObjectField /&gt;</code> 和 <code>&lt;ArrayField /&gt;</code> 可能有嵌套的情况，常规情况下，又需要引入 <code>&lt;schemaItem /&gt;</code> 组件，这样会面临循环引用的问题。</p>
+<div class="mermaid">
+flowchart LR
+SchemaItem --引用--> ObjectField
+ObjectField --引用--> SchemaItem
+</div>
+<p>为了解决这个问题，我们使用了 Vue3 Composition API 中的 provide 和 inject，<code>&lt;SchemaForm /&gt;</code> 引入 <code>&lt;SchemaItem /&gt;</code> 时就用 provide 把 <code>&lt;SchemaItem /&gt;</code> 注入，之后可以通过 inject 获取。</p>
+<div class="mermaid">
+flowchart TB
+SchemaForm --> SchemaItem --> ObjectField
+SchemaForm -.注入 SchemaItem.-> ObjectField
+</div>
+<h2 id="2.3-model-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0-%E2%80%94%E2%80%94-bpmn-%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%92%8C-orm" tabindex="-1">2.3  Model 的自动化实现 —— BPMN 工作流和 ORM</h2>
+<h3 id="2.3.1-bpmn" tabindex="-1">2.3.1 BPMN</h3>
+<p>工作流（Workflow），就是<strong>业务过程的部分或整体，在计算机应用环境下的自动化</strong>。</p>
+<p>它主要解决的是使在多个参与者之间，按照某种预定义的规则传递文档，信息化或任务的过程自动化进行，从而实现某个预期的业务目标，或者促使此目标的实现。</p>
+<p>工作流管理系统（Workflow Management System，WfMS）是一个软件系统，它被用来定义、管理、和执行工作流程。</p>
+<p>业务流程模型和标记法（BPMN，Business Process Model and Notation）是一套图形化表示法，用于以业务流程模型详细说明各种业务流程。</p>
+<p>BPMN 有四种基本要素：</p>
+<ul>
+<li>流对象</li>
+<li>连接对象</li>
+<li>泳道</li>
+<li>器物</li>
+</ul>
+<h3 id="2.3.2-orm-%E7%9A%84%E5%8E%9F%E7%90%86" tabindex="-1">2.3.2 ORM 的原理</h3>
+<p>后端代码常常使用的是面向对象编程，它们将所有实体看成对象（object），关系型数据库则是采用实体之间的关系（relation）链接数据。</p>
+<p><strong>简单说，ORM 就是通过实例对象的语法，完成关系型数据库的操作的技术</strong></p>
+<p>ORM 把数据库映射成对象</p>
+<div class="mermaid">
+flowchart LR
+DB[(数据库)] --> T(表 Table) --> C(类 Class) --> obj((面向对象))
+DB[(数据库)] --> R(行数据 Record) --> O(对象 Object) --> obj((面向对象))
+DB[(数据库)] --> F(字段 Field) --> A(对象的属性) --> obj((面向对象))
+</div>
+<p>程序直接运行 SQL，则操作数据库的方法如下：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> sql = <span class="hljs-string">`
+  SELECT id, first_name, last_name FROM users WHERE id = 10
+`</span>
+<span class="hljs-keyword">const</span> users = db.<span class="hljs-title function_">execSql</span>(sql)
+<span class="hljs-keyword">const</span> name = users[<span class="hljs-number">0</span>].<span class="hljs-property">first_name</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499670-33567">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const sql = `
+  SELECT id, first_name, last_name FROM users WHERE id = 10
+`
+const users = db.execSql(sql)
+const name = users[0].first_name
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499670-33567" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>而如果改成 ORM 的写法，则可以写成：</p>
+<pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = <span class="hljs-title class_">User</span>.<span class="hljs-title function_">get</span>(<span class="hljs-number">10</span>)
+<span class="hljs-keyword">const</span> name = user.<span class="hljs-property">first_name</span>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499671-34661">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = User.get(10)
+const name = user.first_name
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499671-34661" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>ORM 因为使用了对象，封装了数据库操作，因此可以不关心 SQL 语言。</p>
+<p>下面是 ORM 框架的优缺点对比：</p>
+<table>
+<thead>
+<tr>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据模型都在一个地方定义，更容易更新和维护，也利用代码复用</td>
+<td>ORM 学习会很花精力</td>
+</tr>
+<tr>
+<td>有现成工具，能自动完成很多功能</td>
+<td>ORM 难以胜任复杂的查询</td>
+</tr>
+<tr>
+<td>ORM 是天生的 Model，让 MVC 架构更清晰</td>
+<td>ORM 让开发者无法了解底层数据库</td>
+</tr>
+<tr>
+<td>ORM  的业务代码更简单</td>
+<td></td>
+</tr>
+<tr>
+<td>不用担心编写了性能不佳的 SQL</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="2.3.2.1-%E5%B8%82%E9%9D%A2%E5%B8%B8%E8%A7%81%E7%9A%84-orm" tabindex="-1">2.3.2.1 市面常见的 ORM</h5>
+<p>Node.js，常见的基于 Promise 的 ORM 框架是 Sequelize，它能通过面向对象 Class 和关系型数据库的表建立连接</p>
+<h1 id="3-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95" tabindex="-1">3 自动化测试</h1>
+<p>在软件测试中，<strong>自动化测试</strong>指的是使用独立于待测软件的其他软件来自动执行官测试，比较实际结果与预期并生成测试报告这一过程。</p>
+<p>在测试流程已经确定好之后，测试自动化可以执行一些重复但必要的测试工作。也可以完成手动测试几乎不可能完成的测试。</p>
+<h2 id="3.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%86%E7%B1%BB" tabindex="-1">3.1 自动化测试的分类</h2>
+<p>测试自动化有许多途径，下面是一些广泛应用的一般方法：</p>
+<ul>
+<li>基于图形用户交互界面测试（GUI Based Testing）。基于用户界面的测试使用能够产生的图形界面操作，模拟用户的动作</li>
+<li>接口测试，是指通过调用 API 绕过 GUI 的测试</li>
+</ul>
+<h2 id="3.2-%E4%B8%BB%E6%B5%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7" tabindex="-1">3.2 主流测试工具</h2>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>断言</th>
+<th>仿真</th>
+<th>快照</th>
+<th>异步测试</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mocha</td>
+<td>默认不支持，可配置</td>
+<td>默认不支持，可配置</td>
+<td>默认不支持，可配置</td>
+<td>友好</td>
+</tr>
+<tr>
+<td>Ava</td>
+<td>默认支持</td>
+<td>不支持，需第三方配置</td>
+<td>默认支持</td>
+<td>友好</td>
+</tr>
+<tr>
+<td>Jasmine</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>不友好</td>
+</tr>
+<tr>
+<td>Jest</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>默认支持</td>
+<td>友好</td>
+</tr>
+<tr>
+<td>Karma</td>
+<td>不支持，需第三方配置</td>
+<td>不支持，需第三方配置</td>
+<td>不支持，需第三方配置</td>
+<td>不支持，需第三方配置</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3.3-%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B" tabindex="-1">3.3 测试类型</h2>
+<ul>
+<li>单元测试</li>
+<li>集成测试</li>
+<li>UI 测试</li>
+</ul>
+<p>目前，所谓的自动化测试，是需要首先编写测试用例，等到之后继续测试时，只需要手动输入命令就可以了</p>
+<h1 id="4-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9B%86%E6%88%90%E5%92%8C%E5%8F%91%E5%B8%83" tabindex="-1">4 自动化集成和发布</h1>
+<h2 id="4.1-ci%2Fcd-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%87%BA%E7%8E%B0%E5%8E%9F%E5%9B%A0" tabindex="-1">4.1 CI/CD 的定义和出现原因</h2>
+<p>没有 CI/CD，开发到体测的工作流程大致如下：</p>
+<ol>
+<li>本地机器上写代码</li>
+<li>在本地执行单元测试</li>
+<li>提交代码，将代码 push 到远程仓库</li>
+<li>登陆服务器，拉取代码，执行 <code>npm run build</code>，开始构建项目</li>
+<li>如果测试服务器是基于 pm2 的 proxy server，还需要重启 server</li>
+</ol>
+<p>整个流程中，每一个步骤都是重复人工操作，很大增加了成本，而且由于是人工操作，可能会出现错误。</p>
+<p>对于这些繁琐的流程，我们的第一想法是通过脚本来执行，这也就是自动化集成和发布，也就是 CI/CD</p>
+<h2 id="4.2-%E5%B8%82%E9%9D%A2%E5%B8%B8%E8%A7%81%E7%9A%84-ci%2Fcd" tabindex="-1">4.2 市面常见的 CI/CD</h2>
+<p>目前市面上的 CI/CD 大部分分为两种，一种是：</p>
+<ul>
+<li>GitLab + Jenkins 实现 CI/CD</li>
+<li>另外一种是，使用 GitHub Actions 来进行 CI/CD</li>
+</ul>
+<p>我之前编写的代码，便是通过第二种办法来直接将代码发布到腾讯云服务器上的</p>
+<p>比如我在代码中多了一个 <code>.github/workflows</code>，并且有一个 <code>deploy.yml</code></p>
+<p>其中 GitHub 会自动集成这部分。</p>
+<h1 id="5-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%B4%E6%8A%A4" tabindex="-1">5 自动软件生成系统的维护</h1>
+<h1 id="6-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%85%B6%E4%BB%96%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7" tabindex="-1">6 自动软件生成系统的其他辅助工具</h1>
+<h2 id="6.1-prolog-%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B" tabindex="-1">6.1 Prolog 定义和基本类型</h2>
+<p>Prolog （Programming in Logic）是一种逻辑编程语言。和其他编程语言不通。它只需要输入事实和规则，就能自动理清其中的逻辑关系，得到求解的答案。</p>
+<p>在 Prolog 中有四种类型的语句：</p>
+<ul>
+<li>原子（Atoms），以小写字母开头</li>
+<li>数字（Numbers）</li>
+<li>变量（Variables），以大写字母或者下划线开头</li>
+<li>复杂语句（Complex Terms）</li>
+</ul>
+<p>其中，原子和数字统称为常量，常量和变量统称为简单语句。</p>
+<div class="mermaid">
+flowchart LR
+Prolog --> 简单语句
+简单语句 --> 常量
+简单语句 --> 变量
+常量 --> 原子
+常量 --> 数字
+Prolog --> 复杂语句
+</div>
+<p>在 Prolog 中，还有关系和属性的区别</p>
+<ul>
+<li>关系，用括号表示，比如 <code>friend(Tom, Jerry)</code>，代表两人是朋友关系</li>
+<li>属性，同样用括号表示比如 <code>male(Tom)</code>，代表 Tom 是男性</li>
+</ul>
+<h2 id="6.2-prolog-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8" tabindex="-1">6.2 Prolog 的基本应用</h2>
+<p>Prolog 最基本的应用，就是先定义好对象与对象之间的关系，然后查询每个对象之间的关系，这时候系统会自动求解答案。</p>
+<p>比如：</p>
+<p>有一个脚本 demo.pl</p>
+<pre><code class="hljs language-prolog">friend(张三, 李四)
+friend(李四, 王五)
+friend(张三, 赵六)
+friend(赵六, 李四)
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499674-26660">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="friend(张三, 李四)
+friend(李四, 王五)
+friend(张三, 赵六)
+friend(赵六, 李四)
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499674-26660" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>通过以下命令行加载脚本</p>
+<pre><code>[demo].
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499682-81587">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="[demo].
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499682-81587" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>然后输入以下命令判断赵六和张三是不是朋友：</p>
+<pre><code class="hljs language-prolog">friend(赵六, 张三)
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499682-81723">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="friend(赵六, 张三)
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499682-81723" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>当然，上述的问题比较简单，我们也可以通过一个更加复杂的问题来体会 Prolog 强大的推理能力</p>
+<h2 id="6.3-prolog-%E6%B1%82%E8%A7%A3%E5%9C%B0%E5%9B%BE%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98" tabindex="-1">6.3 Prolog 求解地图着色问题</h2>
+<p>以下是一张地图：</p>
+<p>&lt;img src=&quot;https://www.wangbase.com/blogimg/asset/201901/bg2019012803.png&quot; style=&quot;zoom:50%;&quot; /&gt;</p>
+<p>我们需要保证它在相邻的区域中不能使用同一种颜色，如果我们现在使用红、绿、蓝三种颜色对其着色，有多少种办法呢？</p>
+<p>这个问题如果使用传统的程序，我们需要使用顶点着色算法，实现是比较复杂的，需要经过比较复杂的回溯。但是如果我们使用 Prolog,则只需要很短的代码，如下所示：</p>
+<pre><code class="hljs language-prolog">color(red).
+color(green).
+color(blue).
+
+colorify(<span class="hljs-symbol">A</span>, <span class="hljs-symbol">B</span>, <span class="hljs-symbol">C</span>, <span class="hljs-symbol">D</span>, <span class="hljs-symbol">E</span>):
+  color(<span class="hljs-symbol">A</span>), color(<span class="hljs-symbol">B</span>), color(<span class="hljs-symbol">C</span>), color(<span class="hljs-symbol">D</span>), color(<span class="hljs-symbol">E</span>),
+  \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">B</span>, \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">C</span>, \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">D</span>, \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">E</span>,
+  \+ <span class="hljs-symbol">B</span>=<span class="hljs-symbol">C</span>, \+ <span class="hljs-symbol">C</span>=<span class="hljs-symbol">D</span>, \+ <span class="hljs-symbol">D</span>=<span class="hljs-symbol">E</span>.
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499683-88564">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="color(red).
+color(green).
+color(blue).
+
+colorify(A, B, C, D, E):
+  color(A), color(B), color(C), color(D), color(E),
+  \+ A=B, \+ A=C, \+ A=D, \+ A=E,
+  \+ B=C, \+ C=D, \+ D=E.
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499683-88564" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+<p>在上述例子种，<code>\+</code> 代表否定，所以意思是，给 ABCDE 五块区域着色，其中：</p>
+<ul>
+<li>A 和 B 颜色不同</li>
+<li>A 和 C 颜色不同</li>
+<li>A 和 D 颜色不同</li>
+<li>A 和 E 颜色不同</li>
+<li>B 和 C 颜色不同</li>
+<li>C 和 D 颜色不同</li>
+<li>D 和 E 颜色不同</li>
+</ul>
+<p>运行脚本后，会执行 Prolog 分析得出满足上述所有条件的情况。</p>
+<h2 id="6.4-%E5%A6%82%E4%BB%8A%E7%9A%84-prolog" tabindex="-1">6.4 如今的 Prolog</h2>
+<p>Prolog 曾经和 Lisp 并列为人工智能两大语言，但如今 Prolog 仅仅在 SQL 上稍有影响，以及一些特殊场合比较方便。</p>
+<p>Prolog 的出现，其实是人工智能的一直追求的目标，只需要告诉机器需要做什么，而不需要告诉它怎么做。</p>
+<h1 id="7-%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94wide-%E5%AE%9E%E7%8E%B0%E5%85%B8%E5%9E%8B%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F" tabindex="-1">7 实践——WIDE 实现典型管理系统</h1>
+<p>WIDE 是 WWARE 的集成开发环境，在人工智能的支持下，可以快速开发复杂逻辑的智能应用，支持标准的HTML5应用，</p>
+<p>我们使用 WIDE 实现的是一个典型的学生管理系统，包括 10 个页面，分别是：</p>
+<ul>
+<li>登录，login.html</li>
+<li>桌面，dashboard.html</li>
+<li>通知，notice.html</li>
+<li>教学日历，daily.html</li>
+<li>选课管理，course.html</li>
+<li>考试安排，exam.html</li>
+<li>学生评教，evaluation.html</li>
+<li>课程成绩，score.html</li>
+<li>个人信息，info.html</li>
+<li>毕业设计，graduation.html</li>
+</ul>
+<h2 id="7.1-wide-%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5" tabindex="-1">7.1 WIDE 的基础概念</h2>
+<h2 id="7.2-%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1" tabindex="-1">7.2 前端设计</h2>
+<h2 id="7.3-%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1" tabindex="-1">7.3 后端设计</h2>
+<h2 id="7.4-%E5%8F%91%E5%B8%83" tabindex="-1">7.4 发布</h2>
+<h1 id="8-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE" tabindex="-1">8 参考文献</h1>
+<h1 id="9-%E8%87%B4%E8%B0%A2" tabindex="-1">9 致谢</h1>
+
+    </article>
+    <button class="back-to-top">⮝</button>
+  </main>
+  <script src="/static/js/backToTop.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath/texmath.min.js"></script>
+  <script>mermaid.initialize({startOnLoad:true});</script>
+</body>
+</html>

@@ -7,8 +7,8 @@
     "rain": "./bin/rain"
   },
   "scripts": {
-    "dev": "rain dev",
-    "build": "rain build"
+    "dev": "npm link && rain dev",
+    "build": "npm link && rain build"
   },
   "repository": {
     "type": "git",
