@@ -37,7 +37,7 @@ jobs:
                   # 私钥
                   SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
                   # 源目录
-                  SOURCE: 'docs/.vuepress/dist'
+                  SOURCE: 'dist'
                   # 服务器ip：换成你的服务器IP
                   REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
                   # 用户
