@@ -13,23 +13,27 @@ main aside {
   font-size: 14px;
   background-color: #f6f8fa;
 }
-main aside header {
+main aside header a {
   position: sticky;
   top: 0;
-  display: flex;
-  align-items: center;
   height: 79px;
   border-bottom: 1px solid #e1e4e8;
   background-color: #f6f8fa;
+  text-decoration: none;
+  color: #24292f;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
 }
-main aside header img {
+
+main aside header a img {
   width: 32px;
   padding: 5px;
   margin: 0 10px;
   border-radius: 50%;
   border: 1px solid #24292f;
 }
-main aside header span {
+main aside header a span {
   font-size: 16px;
 }
 main aside section ul {
