@@ -1,0 +1,30 @@
+#!/usr/bin/env node
+
+const { Command } = require('commander')
+const program = new Command()
+
+// 设置版本号
+program.version('0.0.1')
+
+program
+  .command('init [targetDir]')
+  .description('初始化博客网站')
+  .action(require('../lib/init'))
+
+program
+  .command('dev [targetDir]')
+  .description('启动开发服务')
+  .action(require('../lib/dev'))
+
+program
+  .command('build [targetDir]')
+  .description('构建 html 网页')
+  .action(require('../lib/build'))
+
+program
+  .command('create [targetDir]')
+  .description('创建新文章')
+  .action(require('../lib/create'))
+
+// 开始解析
+program.parse(process.argv)
