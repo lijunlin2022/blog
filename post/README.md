@@ -1,11 +1,10 @@
-[toc]
-
-# 介绍
-
 Rainforest Blog 是一个读取 Markdown 文件生成 HTML 文件的网站生成器。你可以点击[例子](http://blog.lijunlin.xyz)查看它生成的网站。
 
 Rainforest Blog 是作者毕业设计——《自动软件生成系统的研究与实践》顺手写下的作品，用来探究使用模板生成代码的方案。
 
+# 目录
+
+[toc]
 # 1 支持功能
 
 ## 1.1 Markdown 的基本语法

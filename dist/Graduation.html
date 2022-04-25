@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>博客</title>
+  <link rel="icon" href="/static/img/logo.svg">
   <link rel="stylesheet" href="/static/css/github-markdown.css" />
   <link rel="stylesheet" href="/static/css/highlight-github.css" />
   <link rel="stylesheet" href="/static/css/main.css" />
@@ -15,8 +16,10 @@
   <main>
     <aside>
       <header>
-        <img src="/static/img/logo.svg" />
-        <span>Rainforest Blog Docs</span>
+        <a href="/">
+          <img src="/static/img/logo.svg" />
+          <span>Rainforest Blog</span>
+        </a>
       </header>
       <section>
         <ul><li><a href="#%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5">自动软件生成系统的研究与实践</a></li><li><a href="#%E7%9B%AE%E5%BD%95">目录</a></li><li><a href="#1-%E7%BB%AA%E8%AE%BA">1 绪论</a><ul><li><a href="#1.1-%E9%80%89%E9%A2%98%E7%9A%84%E5%AE%9A%E4%B9%89%E3%80%81%E6%9D%A5%E6%BA%90%E3%80%81%E6%B6%89%E5%8F%8A%E7%9F%A5%E8%AF%86%E7%82%B9">1.1 选题的定义、来源、涉及知识点</a></li><li><a href="#1.2-%E8%AE%BA%E6%96%87%E7%9A%84%E7%BB%93%E6%9E%84%E5%92%8C%E9%87%8D%E7%82%B9">1.2 论文的结构和重点</a></li><li><a href="#1.3-%E5%9B%BD%E5%86%85%E5%A4%96%E7%9B%B8%E5%85%B3%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6%E3%80%81%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5">1.3 国内外相关理论研究、应用实践</a></li><li><a href="#1.3-%E8%AE%BA%E6%96%87%E7%9A%84%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84%E3%80%81%E5%86%85%E5%AE%B9%E5%8F%8A%E6%96%B9%E6%B3%95">1.3 论文的研究目的、内容及方法</a></li><li><a href="#1.4-%E8%AE%BA%E6%96%87%E7%9A%84%E5%88%9B%E6%96%B0%E4%B9%8B%E5%A4%84">1.4 论文的创新之处</a></li></ul></li><li><a href="#2-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E5%AE%9E%E7%8E%B0">2 自动化编程实现</a><ul><li><a href="#2.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E7%BC%96%E7%A8%8B%E7%9A%84%E6%A0%B8%E5%BF%83%E6%A8%A1%E5%9E%8B%E2%80%94%E2%80%94mvc-%E6%A8%A1%E5%9E%8B">2.1 自动化编程的核心模型——MVC 模型</a></li><li><a href="#2.2-view-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0%E2%80%94%E2%80%94%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E%E5%92%8C-json-schema">2.2 View 的自动化实现——模板引擎和 JSON Schema</a></li><li><a href="#2.3-model-%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E5%AE%9E%E7%8E%B0-%E2%80%94%E2%80%94-bpmn-%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%92%8C-orm">2.3  Model 的自动化实现 —— BPMN 工作流和 ORM</a></li></ul></li><li><a href="#3-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95">3 自动化测试</a><ul><li><a href="#3.1-%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E7%9A%84%E5%88%86%E7%B1%BB">3.1 自动化测试的分类</a></li><li><a href="#3.2-%E4%B8%BB%E6%B5%81%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7">3.2 主流测试工具</a></li><li><a href="#3.3-%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B">3.3 测试类型</a></li></ul></li><li><a href="#4-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%9B%86%E6%88%90%E5%92%8C%E5%8F%91%E5%B8%83">4 自动化集成和发布</a><ul><li><a href="#4.1-ci%2Fcd-%E7%9A%84%E5%AE%9A%E4%B9%89%E5%92%8C%E5%87%BA%E7%8E%B0%E5%8E%9F%E5%9B%A0">4.1 CI/CD 的定义和出现原因</a></li><li><a href="#4.2-%E5%B8%82%E9%9D%A2%E5%B8%B8%E8%A7%81%E7%9A%84-ci%2Fcd">4.2 市面常见的 CI/CD</a></li></ul></li><li><a href="#5-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%BB%B4%E6%8A%A4">5 自动软件生成系统的维护</a></li><li><a href="#6-%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%85%B6%E4%BB%96%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7">6 自动软件生成系统的其他辅助工具</a><ul><li><a href="#6.1-prolog-%E5%AE%9A%E4%B9%89%E5%92%8C%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B">6.1 Prolog 定义和基本类型</a></li><li><a href="#6.2-prolog-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BA%94%E7%94%A8">6.2 Prolog 的基本应用</a></li><li><a href="#6.3-prolog-%E6%B1%82%E8%A7%A3%E5%9C%B0%E5%9B%BE%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98">6.3 Prolog 求解地图着色问题</a></li><li><a href="#6.4-%E5%A6%82%E4%BB%8A%E7%9A%84-prolog">6.4 如今的 Prolog</a></li></ul></li><li><a href="#7-%E5%AE%9E%E8%B7%B5%E2%80%94%E2%80%94wide-%E5%AE%9E%E7%8E%B0%E5%85%B8%E5%9E%8B%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F">7 实践——WIDE 实现典型管理系统</a><ul><li><a href="#7.1-wide-%E7%9A%84%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5">7.1 WIDE 的基础概念</a></li><li><a href="#7.2-%E5%89%8D%E7%AB%AF%E8%AE%BE%E8%AE%A1">7.2 前端设计</a></li><li><a href="#7.3-%E5%90%8E%E7%AB%AF%E8%AE%BE%E8%AE%A1">7.3 后端设计</a></li><li><a href="#7.4-%E5%8F%91%E5%B8%83">7.4 发布</a></li></ul></li><li><a href="#8-%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE">8 参考文献</a></li><li><a href="#9-%E8%87%B4%E8%B0%A2">9 致谢</a></li></ul>
@@ -24,8 +27,8 @@
     </aside>
     <article class="markdown-body">
       <h1 id="%E8%87%AA%E5%8A%A8%E8%BD%AF%E4%BB%B6%E7%94%9F%E6%88%90%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%A0%94%E7%A9%B6%E4%B8%8E%E5%AE%9E%E8%B7%B5" tabindex="-1">自动软件生成系统的研究与实践</h1>
-<p>&lt;center&gt;姓名：李俊霖；学号：1120180326&lt;/center&gt;</p>
-<p>&lt;center&gt;北京理工大学计算机学院&lt;/center&gt;</p>
+<center>姓名：李俊霖；学号：1120180326</center>
+<center>北京理工大学计算机学院</center>
 <p><strong>摘要</strong>：软件自诞生那天起，最少手工编程、快速开发和交付一直是开发者追求的目标。本文探究了目前业界的自动软件生成系统平台（低代码平台）的自动开发、测试、部署、维护等方案。在开发中，介绍了模板引擎和 JSON Schema 配合生成前端代码的方法，以及 BPMN 和 ORM 配合生成后端代码的方法。并介绍 Jest 测试，GitHub Actions，GitLab +  Jenkins 部署。在探究理论过程中，给出作者使用 Vue 编写的三个例子：使用模板引擎生成静态博客、拖拽生成 HTML，使用 JSON Schema 配置生成表单。在实践部分，使用业界的自动软件生成工具 WIDE，生成了一个典型的学生信息管理系统。</p>
 <p><strong>关键词</strong>：低代码（Low Code），业务流程建模符号（BPMN），模板引擎，JSON Schema，BPMN，ORM，Jest，GitHub Actions，GitLab，Jenkins，Vue，WIDE</p>
 <h1 id="%E7%9B%AE%E5%BD%95" tabindex="-1">目录</h1>
@@ -98,31 +101,31 @@ flowchart LR
 <tr>
 <td>一</td>
 <td>绪论</td>
-<td>1. 选题的定义、来源和设计知识点&lt;br/&gt;2. 论文的结构和重点&lt;br/&gt;3. 国内外相关理论研究、应用实践&lt;br/&gt;4. 论文的创新之处</td>
-<td>选题&lt;br/&gt;论文</td>
+<td>1. 选题的定义、来源和设计知识点<br/>2. 论文的结构和重点<br/>3. 国内外相关理论研究、应用实践<br/>4. 论文的创新之处</td>
+<td>选题<br/>论文</td>
 </tr>
 <tr>
 <td>二</td>
 <td>自动软件生成系统的实现方法</td>
-<td>1. MVC 模型&lt;br/&gt;2. 前端 View——模板引擎和 JSON Schema&lt;br/&gt;3. 后端 Model——BPMN 和 ORM&lt;br/&gt;</td>
-<td>MVC&lt;br/&gt;模板引擎&lt;br/&gt;ORM&lt;br/&gt;BPMN&lt;br/&gt;JSON Schema</td>
+<td>1. MVC 模型<br/>2. 前端 View——模板引擎和 JSON Schema<br/>3. 后端 Model——BPMN 和 ORM<br/></td>
+<td>MVC<br/>模板引擎<br/>ORM<br/>BPMN<br/>JSON Schema</td>
 </tr>
 <tr>
 <td>三</td>
 <td>自动化测试</td>
-<td>1. 测试的类型和方法&lt;br/&gt;2. 常见测试工具</td>
+<td>1. 测试的类型和方法<br/>2. 常见测试工具</td>
 <td>Jest</td>
 </tr>
 <tr>
 <td>四</td>
 <td>自动化集成和部署</td>
-<td>1. 自动化集成和部署的来源&lt;br/&gt;2. GitHub Actions 的使用&lt;br/&gt;3. GitLab 和  Jenkins</td>
-<td>GitHub Actions&lt;br/&gt;GitLab&lt;br/&gt;Jenkins</td>
+<td>1. 自动化集成和部署的来源<br/>2. GitHub Actions 的使用<br/>3. GitLab 和  Jenkins</td>
+<td>GitHub Actions<br/>GitLab<br/>Jenkins</td>
 </tr>
 <tr>
 <td>五</td>
 <td>自动软件生成系统的维护</td>
-<td>1. 常见的维护方法&lt;br/&gt;</td>
+<td>1. 常见的维护方法<br/></td>
 <td></td>
 </tr>
 <tr>
@@ -134,7 +137,7 @@ flowchart LR
 <tr>
 <td>七</td>
 <td>实践——WIDE 实现典型管理系统</td>
-<td>1. WWIDE 的基础概念&lt;br/&gt;2. 前端设计&lt;br/&gt;3. 后端设计&lt;br/&gt;4. 发布</td>
+<td>1. WWIDE 的基础概念<br/>2. 前端设计<br/>3. 后端设计<br/>4. 发布</td>
 <td></td>
 </tr>
 <tr>
@@ -173,75 +176,75 @@ flowchart LR
 <h3 id="1.3.1-%E7%90%86%E8%AE%BA%E7%A0%94%E7%A9%B6" tabindex="-1">1.3.1 理论研究</h3>
 <h3 id="1.3.2-%E5%BA%94%E7%94%A8%E5%AE%9E%E8%B7%B5" tabindex="-1">1.3.2 应用实践</h3>
 <p>简要国内自动软件生成系统一览：</p>
-<p>&lt;table&gt;
-&lt;tr&gt;
-&lt;th&gt;名称&lt;/th&gt;
-&lt;th&gt;企业&lt;/th&gt;
-&lt;th&gt;链接&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;宜搭&lt;/td&gt;
-&lt;td rowspan=&quot;2&quot;&gt;阿里&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.aliwork.com/&quot;&gt;https://www.aliwork.com/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;imgCook&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.imgcook.com/&quot;&gt;https://www.imgcook.com/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;腾讯云微搭&lt;/td&gt;
-&lt;td&gt;腾讯&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://cloud.tencent.com/product/weda&quot;&gt; https://cloud.tencent.com/product/weda&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;简道云&lt;/td&gt;
-&lt;td&gt;帆软软件有限公司&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.jiandaoyun.com/&quot;&gt;https://www.jiandaoyun.com/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;奥哲·氚云&lt;/td&gt;
-&lt;td&gt;深圳奥哲网络科技有限公司&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://h3yun.com/#/home&quot;&gt;https://h3yun.com/#/home&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;易鲸云&lt;/td&gt;
-&lt;td&gt;北京炎黄盈动科技发展有限公司&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.actionsoft.com.cn/&quot;&gt;https://www.actionsoft.com.cn/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;明道云&lt;/td&gt;
-&lt;td&gt;上海万企明软件有限公司&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.mingdao.com/&quot;&gt;https://www.mingdao.com/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;IVX&lt;/td&gt;
-&lt;td&gt;深圳市世云新媒体有限公司&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.ivx.cn/&quot;&gt;https://www.ivx.cn/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;amis&lt;/td&gt;
-&lt;td&gt;百度&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://aisuda.bce.baidu.com/amis/zh-CN/docs/index&quot;&gt;https://aisuda.bce.baidu.com/amis/zh-CN/docs/index&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</p>
+<table>
+  <tr>
+    <th>名称</th>
+    <th>企业</th>
+    <th>链接</th>
+  </tr>
+  <tr>
+    <td>宜搭</td>
+    <td rowspan="2">阿里</td>
+    <td><a href="https://www.aliwork.com/">https://www.aliwork.com/</a></td>
+  </tr>
+  <tr>
+    <td>imgCook</td>
+    <td><a href="https://www.imgcook.com/">https://www.imgcook.com/</a></td>
+  </tr>
+  <tr>
+    <td>腾讯云微搭</td>
+    <td>腾讯</td>
+    <td><a href="https://cloud.tencent.com/product/weda"> https://cloud.tencent.com/product/weda</a></td>
+  </tr>
+  <tr>
+    <td>简道云</td>
+    <td>帆软软件有限公司</td>
+    <td><a href="https://www.jiandaoyun.com/">https://www.jiandaoyun.com/</a></td>
+  </tr>
+  <tr>
+    <td>奥哲·氚云</td>
+    <td>深圳奥哲网络科技有限公司</td>
+    <td><a href="https://h3yun.com/#/home">https://h3yun.com/#/home</a></td>
+  </tr>
+  <tr>
+    <td>易鲸云</td>
+    <td>北京炎黄盈动科技发展有限公司</td>
+    <td><a href="https://www.actionsoft.com.cn/">https://www.actionsoft.com.cn/</a></td>
+  </tr>
+  <tr>
+    <td>明道云</td>
+    <td>上海万企明软件有限公司</td>
+    <td><a href="https://www.mingdao.com/">https://www.mingdao.com/</a></td>
+  </tr>
+  <tr>
+    <td>IVX</td>
+    <td>深圳市世云新媒体有限公司</td>
+    <td><a href="https://www.ivx.cn/">https://www.ivx.cn/</a></td>
+  </tr>
+  <tr>
+    <td>amis</td>
+    <td>百度</td>
+    <td><a href="https://aisuda.bce.baidu.com/amis/zh-CN/docs/index">https://aisuda.bce.baidu.com/amis/zh-CN/docs/index</a></td>
+  </tr>
+</table>
 <p>简要国外自动软件生成系统：</p>
-<p>&lt;table&gt;
-&lt;tr&gt;
-&lt;th&gt;名称&lt;/th&gt;
-&lt;th&gt;企业&lt;/th&gt;
-&lt;th&gt;链接&lt;/th&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Power Apps&lt;/td&gt;
-&lt;td&gt;Microsoft&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://powerapps.microsoft.com/en-us/&quot;&gt;https://aisuda.bce.baidu.com/amis/zh-CN/docs/index&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OuterSystems&lt;/td&gt;
-&lt;td&gt;OuterSystems&lt;/td&gt;
-&lt;td&gt;&lt;a href=&quot;https://www.outsystems.com/&quot;&gt;https://www.outsystems.com/&lt;/a&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</p>
+<table>
+  <tr>
+    <th>名称</th>
+    <th>企业</th>
+    <th>链接</th>
+  </tr>
+  <tr>
+    <td>Power Apps</td>
+    <td>Microsoft</td>
+    <td><a href="https://powerapps.microsoft.com/en-us/">https://aisuda.bce.baidu.com/amis/zh-CN/docs/index</a></td>
+  </tr>
+  <tr>
+    <td>OuterSystems</td>
+    <td>OuterSystems</td>
+    <td><a href="https://www.outsystems.com/">https://www.outsystems.com/</a></td>
+  </tr>
+</table>
 <h2 id="1.3-%E8%AE%BA%E6%96%87%E7%9A%84%E7%A0%94%E7%A9%B6%E7%9B%AE%E7%9A%84%E3%80%81%E5%86%85%E5%AE%B9%E5%8F%8A%E6%96%B9%E6%B3%95" tabindex="-1">1.3 论文的研究目的、内容及方法</h2>
 <p>本论文目的在对当前业界自动化代码的方式的原理做一个整合，采取的方法为理论研究 + 工程实践。</p>
 <h2 id="1.4-%E8%AE%BA%E6%96%87%E7%9A%84%E5%88%9B%E6%96%B0%E4%B9%8B%E5%A4%84" tabindex="-1">1.4 论文的创新之处</h2>
@@ -268,16 +271,16 @@ TE(模板引擎) --> H(HTML文档)
 <p>模板引擎分为很多种，最基础的模板引擎称为<code>置换型模板引擎</code>，它的作用是将特定的标记替换为写好的数据。</p>
 <p>比如，在模板中有这样一段代码：</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> template = <span class="hljs-string">&#x27;&lt;p&gt;Hello, my name is &lt;%name%&gt;&lt;/p&gt;&#x27;</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499412-35951">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = '&lt;p&gt;Hello, my name is &lt;%name%&gt;&lt;/p&gt;'
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499412-35951" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994350-39896">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = '&lt;p&gt;Hello, my name is &lt;%name%&gt;&lt;/p&gt;'
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994350-39896" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>给出的数据如下：</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> data = { <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span> }
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499468-16560">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const data = { name: 'Tom' }
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499468-16560" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994438-89101">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const data = { name: 'Tom' }
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994438-89101" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>在实际渲染时，要将 template 中的 <code>name</code> 将会被替换，得到</p>
 <pre><code class="hljs language-js"><span class="hljs-string">&#x27;&lt;p&gt;Hello, my name is Tom&lt;/p&gt;&#x27;</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499472-90518">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="'&lt;p&gt;Hello, my name is Tom&lt;/p&gt;'
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499472-90518" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994442-22312">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="'&lt;p&gt;Hello, my name is Tom&lt;/p&gt;'
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994442-22312" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>不考虑性能，完全可以用一个字符串替换的方法，来实现一个最简单的模板引擎：</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">engine</span> (template, data) {
   <span class="hljs-keyword">const</span> result = template.<span class="hljs-title function_">replace</span>(<span class="hljs-regexp">/&lt;%([^%&gt;]+)?%&gt;/g</span>, <span class="hljs-keyword">function</span> (<span class="hljs-params">match, key</span>) {
@@ -291,7 +294,7 @@ TE(模板引擎) --> H(HTML文档)
 
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">engine</span>(template, data))
 <span class="hljs-comment">// 结果为: &lt;p&gt;Hello, my name is Tom&lt;/p&gt;</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499473-47817">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="function engine (template, data) {
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994443-10238">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="function engine (template, data) {
   const result = template.replace(/&lt;%([^%&gt;]+)?%&gt;/g, function (match, key) {
     return data[key]    
   })
@@ -303,7 +306,7 @@ const data = { name: 'Tom' }
 
 console.log(engine(template, data))
 // 结果为: &lt;p&gt;Hello, my name is Tom&lt;/p&gt;
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499473-47817" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994443-10238" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>然而，以上的代码仅能针对简单的对象，而对于复杂的嵌套对象，比如：</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = {
   <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,
@@ -312,14 +315,14 @@ console.log(engine(template, data))
     <span class="hljs-attr">address</span>: <span class="hljs-string">&#x27;United States&#x27;</span>
   }
 }
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499500-54172">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994473-55911">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
   name: 'Tom',
   institution: {
     name: 'MIT',
     address: 'United States'
   }
 }
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499500-54172" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994473-55911" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>要在模板中被这样使用：</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> template = <span class="hljs-string">`
   &lt;p&gt;
@@ -327,22 +330,22 @@ console.log(engine(template, data))
   I&#x27;m from &lt;%institution.name%&gt; in the &lt;%institution.address%&gt;
   &lt;/p&gt;
 `</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499501-77898">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = `
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994475-85176">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = `
   &lt;p&gt;
   Hello, my name is &lt;%name%&gt;, 
   I'm from &lt;%institution.name%&gt; in the &lt;%institution.address%&gt;
   &lt;/p&gt;
 `
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499501-77898" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994475-85176" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>此时已经无法直接使用字符串替换来完成工作，此时一个办法就是在 <code>&lt;%</code> 和 <code>%&gt;</code> 直接使用 JavaScript 代码。</p>
 <p>能完成只要的工作，是因为 JavaScript 是可以直接根据字符串来创建一个函数的，比如：</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> sum = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;return a + b&#x27;</span>)
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">sum</span>(<span class="hljs-number">2</span>, <span class="hljs-number">6</span>))
 <span class="hljs-comment">// 结果为: 8</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499502-75224">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const sum = new Function('a', 'b', 'return a + b')
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994477-76159">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const sum = new Function('a', 'b', 'return a + b')
 console.log(sum(2, 6))
 // 结果为: 8
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499502-75224" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994477-76159" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>因此单独针对一个变量，对于上述模板，我们只需要将 <code>&lt;%</code> 和 <code>%&gt;</code> 中央的内容当作返回值传递出来。</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = {
   <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,
@@ -354,7 +357,7 @@ console.log(sum(2, 6))
 <span class="hljs-keyword">const</span> fn = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Function</span>(<span class="hljs-string">&#x27;obj&#x27;</span>, <span class="hljs-string">&#x27;return obj.institution.address&#x27;</span>)
 <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-title function_">fn</span>(user))
 <span class="hljs-comment">// 结果为: United States</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499506-68581">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994491-55741">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
   name: 'Tom',
   institution: {
     name: 'MIT',
@@ -364,7 +367,7 @@ console.log(sum(2, 6))
 const fn = new Function('obj', 'return obj.institution.address')
 console.log(fn(user))
 // 结果为: United States
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499506-68581" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994491-55741" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>现在针对这个模板，我们可以这样做</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = {
   <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;Tom&#x27;</span>,
@@ -387,7 +390,7 @@ arr.<span class="hljs-title function_">push</span>(<span class="hljs-string">`&l
 <span class="hljs-comment">// Hello, my name is Tom, </span>
 <span class="hljs-comment">// I&#x27;m from MIT in the United States</span>
 <span class="hljs-comment">// &lt;/p&gt;</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499512-91484">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994496-57044">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = {
   name: 'Tom',
   institution: {
     name: 'MIT',
@@ -408,7 +411,7 @@ console.log(arr.join(''))
 // Hello, my name is Tom, 
 // I'm from MIT in the United States
 // &lt;/p&gt;
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499512-91484" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994496-57044" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>为此，我们可以专门写一个 engine 函数，</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> template = <span class="hljs-string">`
   &lt;p&gt;
@@ -445,7 +448,7 @@ console.log(arr.join(''))
 <span class="hljs-comment">// Hello, my name is Tom, </span>
 <span class="hljs-comment">// I&#x27;m from MIT in the United States</span>
 <span class="hljs-comment">// &lt;/p&gt;</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499524-66648">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = `
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994513-72177">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const template = `
   &lt;p&gt;
   Hello, my name is &lt;%name%&gt;, 
   I'm from &lt;%institution.name%&gt; in the &lt;%institution.address%&gt;
@@ -480,7 +483,7 @@ console.log(engine(template, user))
 // Hello, my name is Tom, 
 // I'm from MIT in the United States
 // &lt;/p&gt;
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499524-66648" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994513-72177" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>还有更多的东西，比如在模板引擎中，出现了 for 语句或者 if 语句等等</p>
 <h4 id="2.2.1.2-%E5%88%86%E7%B1%BB" tabindex="-1">2.2.1.2 分类</h4>
 <p>基本每一个可以写 Web 应用的语言，都有着自己的模板引擎。比如：</p>
@@ -577,7 +580,7 @@ console.log(engine(template, user))
   <span class="hljs-tag">&lt;/<span class="hljs-name">article</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499546-59938">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;!DOCTYPE html&gt;
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994546-1645">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
   &lt;meta charset=&quot;UTF-8&quot;&gt;
@@ -610,7 +613,7 @@ console.log(engine(template, user))
   &lt;/article&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499546-59938" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994546-1645" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>这里在 article 部分，有一个 <code>{{@htmlContent}}</code>，它就是我们需要的数据。</p>
 <p>我们的数据，是读取 markdown 文件，然后通过编译转换为 html 标签的。典型的对应关系如下：</p>
 <table>
@@ -654,7 +657,7 @@ console.log(engine(template, user))
 <td><code>hr</code></td>
 </tr>
 <tr>
-<td>&lt;code&gt;```&lt;/code&gt;</td>
+<td><code>```</code></td>
 <td><code>pre</code> + <code>code</code></td>
 </tr>
 </tbody>
@@ -719,7 +722,7 @@ console.log(engine(template, user))
   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;build finish&#x27;</span>)
 }
 
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499640-23262">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const {
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994697-66733">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const {
   readdirSync,
   statSync,
   writeFileSync,
@@ -777,7 +780,7 @@ module.exports = () =&gt; {
   console.log('build finish')
 }
 
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499640-23262" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994697-66733" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>可以看到，我们会读取 post 下的文章，然后对每一个 markdown 文件，我们都先使用 <code>markdown-it</code> 的 <code>render</code> 方法，生成了 html 标签；接着我们把这些标签，给放到 template 的 render 方法中，它会把我们之前的 <code>{{@htmlContent}}</code> 给替换掉。</p>
 <p>至于具体的代码，可以到 GitHub 上去看完整的实现。</p>
 <h4 id="2.2.1.4-%E5%AE%9E%E4%BE%8B%E4%BA%8C%E2%80%94%E2%80%94%E6%8B%96%E6%8B%BD%E7%94%9F%E6%88%90-html" tabindex="-1">2.2.1.4 实例二——拖拽生成 HTML</h4>
@@ -795,16 +798,16 @@ module.exports = () =&gt; {
 <h5 id="2.2.1.4.1-%E5%8F%AF%E8%A7%86%E5%8C%96%E7%9A%84%E5%85%B8%E5%9E%8B%E6%96%B9%E5%BC%8F" tabindex="-1">2.2.1.4.1 可视化的典型方式</h5>
 <p>可视化生成代码，根本原理和模板引擎其实类似，都是模板 + 数据生成代码。只是数据，则是通过拖拽的位置来确定的。</p>
 <p>以我编写的可视化组件搭建系统为例，整个可视化可以分为四个区域：</p>
-<p>&lt;table&gt;
-&lt;tr&gt;
-&lt;td rowspan=&quot;2&quot; style=&quot;background: #fbd3d0&quot;&gt;物料区&lt;/td&gt;
-&lt;td colspan=&quot;2&quot; style=&quot;background: #f7e9bc&quot;&gt;操作区&lt;/td&gt;
-&lt;td rowspan=&quot;2&quot; style=&quot;background: #ceebd2&quot;&gt;属性区&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td rowspan=&quot;1&quot; colspan=&quot;1&quot; style=&quot;background: #c4e4f5&quot;&gt;效果区&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;</p>
+<table>
+  <tr>
+    <td rowspan="2" style="background: #fbd3d0">物料区</td>
+    <td colspan="2" style="background: #f7e9bc">操作区</td>
+    <td rowspan="2" style="background: #ceebd2">属性区</td>
+  </tr>
+  <tr>
+    <td rowspan="1" colspan="1" style="background: #c4e4f5">效果区</td>
+  </tr>
+</table>
 <ul>
 <li>物料区，放置着各种各样的组件</li>
 <li>效果区，预览拖拽之后渲染的效果</li>
@@ -813,10 +816,10 @@ module.exports = () =&gt; {
 </ul>
 <h5 id="2.2.1.4.2-%E6%95%88%E6%9E%9C%E5%8C%BA%E5%9F%9F%E7%9A%84%E6%A0%B7%E5%BC%8F" tabindex="-1">2.2.1.4.2 效果区域的样式</h5>
 <p>效果区域的所有样式，均是组件的行内样式，比如要设置一个如下样式的方块：</p>
-<p>&lt;div style=&quot;width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;&quot;&gt;这是一个方块&lt;/div&gt;</p>
+<div style="width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;">这是一个方块</div>
 <pre><code class="hljs language-html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;&quot;</span>&gt;</span>这是一个方块<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499656-15142">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;div style=&quot;width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;&quot;&gt;这是一个方块&lt;/div&gt;
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499656-15142" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994730-63730">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;div style=&quot;width:200px;height:100px;background-color:red;color:yellow;text-align:center;line-height: 100px;&quot;&gt;这是一个方块&lt;/div&gt;
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994730-63730" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <h5 id="2.2.1.4.3-%E6%95%88%E6%9E%9C%E5%8C%BA%E5%9F%9F%E7%9A%84%E5%AE%9A%E4%BD%8D" tabindex="-1">2.2.1.4.3 效果区域的定位</h5>
 <p>如果要进行像素级定位，则需要给容器 <code>style</code> 设置 <code>position</code> 为 <code>relative</code>，给组件的 <code>style</code> 设置 <code>position</code> 为 <code>absolute</code>，这样对于容器内渲染的组件，则是用 <code>top</code> 和 <code>left</code> 来确定位置。</p>
 <h5 id="2.2.1.4.4-%E6%95%88%E6%9E%9C%E5%8C%BA%E5%9F%9F%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AF%BC%E5%87%BA" tabindex="-1">2.2.1.4.4 效果区域代码的导出</h5>
@@ -833,11 +836,11 @@ module.exports = () =&gt; {
   <span class="hljs-attr">type</span>: <span class="hljs-string">&quot;string&quot;</span>,
   <span class="hljs-attr">minLength</span>: <span class="hljs-number">10</span>
 }
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499657-12580">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="{
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994732-50904">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="{
   type: &quot;string&quot;,
   minLength: 10
 }
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499657-12580" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994732-50904" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>这便是要求一段数据，它的类型必须是字符串，且最小长度为 10。</p>
 <p>这样严格的校验，有什么作用呢？</p>
 <p><mark>JSON Schema 不仅可以定义和校验前端，也可以定义校验后端</mark>。这让前后端对接接口时，变得非常规范和容易，还能方便测试。</p>
@@ -877,8 +880,8 @@ module.exports = () =&gt; {
 <li>安装</li>
 </ul>
 <pre><code>npm install ajv
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499659-16628">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="npm install ajv
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499659-16628" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994736-78657">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="npm install ajv
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994736-78657" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <ul>
 <li>示例</li>
 </ul>
@@ -895,7 +898,7 @@ module.exports = () =&gt; {
 <span class="hljs-keyword">if</span> (!valid) {
   <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(validate.<span class="hljs-property">errors</span>)
 }
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499659-73398">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const Ajv = require('ajv')
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994737-322">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const Ajv = require('ajv')
 
 const schema = {
   type: 'string',
@@ -908,7 +911,7 @@ const valid = validate('hello')
 if (!valid) {
   console.log(validate.errors)
 }
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499659-73398" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994737-322" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>使用 node 运行上述代码，结果为</p>
 <pre><code class="hljs language-js">[
   {
@@ -919,7 +922,7 @@ if (!valid) {
     <span class="hljs-attr">message</span>: <span class="hljs-string">&#x27;should NOT be shorter than 10 characters&#x27;</span>
   }
 ]
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499661-11556">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="[
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994740-83581">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="[
   {
     keyword: 'minLength',
     detaPath: '',
@@ -928,7 +931,7 @@ if (!valid) {
     message: 'should NOT be shorter than 10 characters'
   }
 ]
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499661-11556" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994740-83581" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>这段结果的意思很好理解，我们定义了字符串的长度必须是 10，但是我们传进去的字符串 &quot;Hello&quot; 的长度只是 5，这是不符合要求的，因此会给我们输出错误信息。</p>
 <h4 id="2.2.2.4-%E4%BD%BF%E7%94%A8-json-schema-%E9%85%8D%E7%BD%AE%E7%94%9F%E6%88%90%E8%A1%A8%E5%8D%95" tabindex="-1">2.2.2.4 使用 JSON Schema 配置生成表单</h4>
 <p>具体的实例，作者部署到自己的服务器了，可以到 http://json-schema-form.lijunlin.xyz 查看。</p>
@@ -942,7 +945,7 @@ if (!valid) {
   contextRef={ctxRef}
   uiSchema={uiSchema}
 /&gt;
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499663-95022">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;JsonSchemaForm
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994742-53392">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="&lt;JsonSchemaForm
   schema={schema}
   value={value}
   onChange={onChange}
@@ -950,7 +953,7 @@ if (!valid) {
   contextRef={ctxRef}
   uiSchema={uiSchema}
 /&gt;
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499663-95022" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994742-53392" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>其中，传递的 6 个参数解释如下：</p>
 <ul>
 <li><code>schema</code>，定义了表单需要的数据和数据格式</li>
@@ -998,7 +1001,7 @@ if (!valid) {
     }   
   }
 })
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499664-22091">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="export default defineComponent({
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994743-86071">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="export default defineComponent({
   // ...
   setup () {
     return () =&gt; {
@@ -1027,7 +1030,7 @@ if (!valid) {
     }   
   }
 })
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499664-22091" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994743-86071" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>由于 <code>&lt;ObjectField /&gt;</code> 和 <code>&lt;ArrayField /&gt;</code> 可能有嵌套的情况，常规情况下，又需要引入 <code>&lt;schemaItem /&gt;</code> 组件，这样会面临循环引用的问题。</p>
 <div class="mermaid">
 flowchart LR
@@ -1069,18 +1072,18 @@ DB[(数据库)] --> F(字段 Field) --> A(对象的属性) --> obj((面向对象
 `</span>
 <span class="hljs-keyword">const</span> users = db.<span class="hljs-title function_">execSql</span>(sql)
 <span class="hljs-keyword">const</span> name = users[<span class="hljs-number">0</span>].<span class="hljs-property">first_name</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499670-33567">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const sql = `
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994752-14508">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const sql = `
   SELECT id, first_name, last_name FROM users WHERE id = 10
 `
 const users = db.execSql(sql)
 const name = users[0].first_name
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499670-33567" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994752-14508" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>而如果改成 ORM 的写法，则可以写成：</p>
 <pre><code class="hljs language-js"><span class="hljs-keyword">const</span> user = <span class="hljs-title class_">User</span>.<span class="hljs-title function_">get</span>(<span class="hljs-number">10</span>)
 <span class="hljs-keyword">const</span> name = user.<span class="hljs-property">first_name</span>
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499671-34661">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = User.get(10)
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994756-41919">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="const user = User.get(10)
 const name = user.first_name
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499671-34661" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994756-41919" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>ORM 因为使用了对象，封装了数据库操作，因此可以不关心 SQL 语言。</p>
 <p>下面是 ORM 框架的优缺点对比：</p>
 <table>
@@ -1235,23 +1238,23 @@ Prolog --> 复杂语句
 friend(李四, 王五)
 friend(张三, 赵六)
 friend(赵六, 李四)
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499674-26660">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="friend(张三, 李四)
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994761-64332">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="friend(张三, 李四)
 friend(李四, 王五)
 friend(张三, 赵六)
 friend(赵六, 李四)
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499674-26660" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994761-64332" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>通过以下命令行加载脚本</p>
 <pre><code>[demo].
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499682-81587">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="[demo].
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499682-81587" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994772-80803">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="[demo].
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994772-80803" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>然后输入以下命令判断赵六和张三是不是朋友：</p>
 <pre><code class="hljs language-prolog">friend(赵六, 张三)
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499682-81723">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="friend(赵六, 张三)
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499682-81723" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994773-59510">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="friend(赵六, 张三)
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994773-59510" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>当然，上述的问题比较简单，我们也可以通过一个更加复杂的问题来体会 Prolog 强大的推理能力</p>
 <h2 id="6.3-prolog-%E6%B1%82%E8%A7%A3%E5%9C%B0%E5%9B%BE%E7%9D%80%E8%89%B2%E9%97%AE%E9%A2%98" tabindex="-1">6.3 Prolog 求解地图着色问题</h2>
 <p>以下是一张地图：</p>
-<p>&lt;img src=&quot;https://www.wangbase.com/blogimg/asset/201901/bg2019012803.png&quot; style=&quot;zoom:50%;&quot; /&gt;</p>
+<img src="https://www.wangbase.com/blogimg/asset/201901/bg2019012803.png" style="zoom:50%;" />
 <p>我们需要保证它在相邻的区域中不能使用同一种颜色，如果我们现在使用红、绿、蓝三种颜色对其着色，有多少种办法呢？</p>
 <p>这个问题如果使用传统的程序，我们需要使用顶点着色算法，实现是比较复杂的，需要经过比较复杂的回溯。但是如果我们使用 Prolog,则只需要很短的代码，如下所示：</p>
 <pre><code class="hljs language-prolog">color(red).
@@ -1262,7 +1265,7 @@ colorify(<span class="hljs-symbol">A</span>, <span class="hljs-symbol">B</span>,
   color(<span class="hljs-symbol">A</span>), color(<span class="hljs-symbol">B</span>), color(<span class="hljs-symbol">C</span>), color(<span class="hljs-symbol">D</span>), color(<span class="hljs-symbol">E</span>),
   \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">B</span>, \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">C</span>, \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">D</span>, \+ <span class="hljs-symbol">A</span>=<span class="hljs-symbol">E</span>,
   \+ <span class="hljs-symbol">B</span>=<span class="hljs-symbol">C</span>, \+ <span class="hljs-symbol">C</span>=<span class="hljs-symbol">D</span>, \+ <span class="hljs-symbol">D</span>=<span class="hljs-symbol">E</span>.
-</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650784499683-88564">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="color(red).
+</code><div class="m-mdic-copy-wrapper"><div class="u-mdic-copy-notify" id="j-notify-1650854994773-16142">copy success</div><button class="u-mdic-copy-btn j-mdic-copy-btn" data-mdic-content="color(red).
 color(green).
 color(blue).
 
@@ -1270,7 +1273,7 @@ colorify(A, B, C, D, E):
   color(A), color(B), color(C), color(D), color(E),
   \+ A=B, \+ A=C, \+ A=D, \+ A=E,
   \+ B=C, \+ C=D, \+ D=E.
-" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650784499683-88564" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
+" data-mdic-attach-content="" data-mdic-notify-id="j-notify-1650854994773-16142" data-mdic-notify-delay="2000" data-mdic-copy-fail-text="copy fail" onclick="!function(t){const e={copy:(t='',e='')=>new Promise((c,o)=>{const n=document.createElement('textarea'),d=e?`\n\n${e}`:e;n.value=`${t}${d}`,document.body.appendChild(n),n.select();try{const t=document.execCommand('copy');document.body.removeChild(n),t?c():o()}catch(t){document.body.removeChild(n),o()}}),btnClick(t){const c=t&&t.dataset?t.dataset:{},o=c.mdicNotifyId,n=document.getElementById(o),d=c.mdicNotifyDelay,i=c.mdicCopyFailText;e.copy(c.mdicContent,c.mdicAttachContent).then(()=>{n.style.display='block',setTimeout(()=>{n.style.display='none'},d)}).catch(()=>{alert(i)})}};e.btnClick(t)}(this);">copy</button></div></pre>
 <p>在上述例子种，<code>\+</code> 代表否定，所以意思是，给 ABCDE 五块区域着色，其中：</p>
 <ul>
 <li>A 和 B 颜色不同</li>
