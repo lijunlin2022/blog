@@ -11,16 +11,105 @@
   <link rel="stylesheet" href="/static/css/main.css" />
   <link rel="stylesheet" href="/static/css/copy.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" />
+  <style>
+    nav {
+      display: block;
+      border-bottom: 1px solid #e1e4e8;
+      font-size: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 3;
+    }
+    nav .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 59px;
+      text-decoration: none;
+      background-color: #24292f;
+      color: #fff;
+      border-bottom: 1px solid #24292f;
+    }
+    nav .logo button {
+      display: block;
+      position: fixed;
+      left: 5px;
+      border: none;
+      outline: none;
+      background-color: #24292f;
+    }
+    nav .logo button img {
+      width: 24px;
+    }
+    nav .logo a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    nav .logo a img {
+      width: 25px;
+      padding: 5px;
+      margin: 0 10px;
+      border-radius: 50%;
+      background-color: #fff;
+    }
+    nav ul {
+      list-style: none;
+      background-color: #24292f;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    nav ul li {
+      padding: 10px;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #fff;
+    }
+    @media (min-width: 1024px) {
+      nav {
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      nav .logo button {
+        display: none;
+      }
+      nav .logo a {
+        width: 326px;
+      }
+      nav ul {
+        width: calc(100vw - 326px);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: 60px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <nav>
+    <div class="logo">
+      <button id="toggle-btn">
+        <img src="/static/img/toggle.svg" />
+      </button>
+      <a href="/">
+        <img src="/static/img/logo.svg" />
+        <span style="color: #fff !important;">Rainforest</span>
+      </a>
+    </div>
+    <ul id="nav-items">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
   <main>
     <aside>
-      <header>
-        <a href="/">
-          <img src="/static/img/logo.svg" />
-          <span>Rainforest Blog</span>
-        </a>
-      </header>
       <section>
         {{@contents}}
       </section>
@@ -34,5 +123,17 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/markdown-it-texmath/texmath.min.js"></script>
   <script>mermaid.initialize({startOnLoad:true});</script>
+  <script>
+    function showNavItems () {
+      var items = document.getElementById('nav-items')
+      if (items.style.display === 'none') {
+        items.style.display = 'block'
+      } else {
+        items.style.display = 'none'
+      }
+    }
+    var toggleBtn = document.getElementById('toggle-btn')
+    toggleBtn.addEventListener('click', showNavItems)
+  </script>
 </body>
 </html>
