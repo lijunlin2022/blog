@@ -40,5 +40,5 @@ var scrollTopSmooth = function (position) {
 
 $backToTop = document.querySelector('.back-to-top')
 $backToTop.addEventListener('click', function () {
-  scrollTopSmooth(40);
+  scrollTopSmooth(0);
 }, false);

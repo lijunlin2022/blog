@@ -2,6 +2,84 @@ body {
   padding: 0;
   margin: 0;
 }
+/* navbar */
+nav {
+  display: block;
+  border-bottom: 1px solid #e1e4e8;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+nav .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 59px;
+  text-decoration: none;
+  background-color: #24292f;
+  color: #fff;
+  border-bottom: 1px solid #24292f;
+}
+nav .logo button {
+  display: block;
+  position: fixed;
+  left: 5px;
+  border: none;
+  outline: none;
+  background-color: #24292f;
+}
+nav .logo button img {
+  width: 24px;
+}
+nav .logo a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .logo a img {
+  width: 25px;
+  padding: 5px;
+  margin: 0 10px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+nav ul {
+  list-style: none;
+  background-color: #24292f;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  display: none;
+}
+nav ul li {
+  padding: 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+@media (min-width: 1024px) {
+  nav {
+    position: static;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav .logo button {
+    display: none;
+  }
+  nav .logo a {
+    width: 326px;
+  }
+  nav ul {
+    width: calc(100vw - 326px);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 60px;
+  }
+}
 main article {
   border: 1px solid #e1e4e8;
   border-radius: 2px;
@@ -9,32 +87,10 @@ main article {
 }
 main aside {
   position: sticky;
-  padding: 0 20px;
   font-size: 14px;
-  background-color: #f6f8fa;
 }
-main aside header a {
-  position: sticky;
-  top: 0;
-  height: 79px;
-  border-bottom: 1px solid #e1e4e8;
-  background-color: #f6f8fa;
-  text-decoration: none;
-  color: #24292f;
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-}
-
-main aside header a img {
-  width: 32px;
-  padding: 5px;
-  margin: 0 10px;
-  border-radius: 50%;
-  border: 1px solid #24292f;
-}
-main aside header a span {
-  font-size: 16px;
+main aside section {
+  margin: 20px;
 }
 main aside section ul {
   list-style: none;
@@ -57,6 +113,7 @@ main aside section a {
 @media (min-width: 1024px) {
   main {
     display: flex;
+    background-color: #f6f8fa;
   }
   main aside {
     position: sticky;
@@ -66,12 +123,13 @@ main aside section a {
     border-right: 1px solid #e1e4e8;
     height: 100vh;
     overflow-y: auto;
+    background-color: #fff;
   }
   main article {
     flex: 1;
-    padding: 40px;
+    padding: 20px;
     max-width: 900px;
-    margin: 40px auto !important;
+    margin: 0 auto !important;
   }
 }
 
@@ -82,7 +140,9 @@ main aside section a {
   display: block;
   width: 30px;
   height: 30px;
-  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 50%;
   border: none;
   background-color: #0969da;
@@ -97,3 +157,5 @@ main aside section a {
 .katex {
   font-size: 14px !important;
 }
+
+
