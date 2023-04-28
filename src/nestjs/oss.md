@@ -75,3 +75,77 @@ export class OSSService {
   }
 }
 ```
+
+## 客户端上传图片
+
+客户端上传图片时，会发送两个网络请求：
+
+- 第一个请求的目的是获取签名，这一步骤我我使用 graphql 完成，由客户端发送给开发者服务器。
+- 第二个请求的目标是上传图片，这一步骤我使用原生 fetch 完成，由客户端发送给 OSS 服务器。
+
+我将两个网络请求封装成一个名叫 useOSSUpload 的 hooks。
+
+```ts
+// 定义 graphql 获取签名的 gql
+import { gql } from '@apollo/client'
+
+export const GET_SIGNATURE = gql`
+  query getSignature {
+    getSignature {
+      expire
+      accessId
+      signature
+      policy
+      host
+    }
+  }
+`
+```
+
+```ts
+// 封装 useOSSUpload hooks，返回一个上传图片的函数 uploadHandler
+export const useOSSUpload = () => {
+  const { data: d } = useQuery(GET_SIGNATURE)
+  const uploadHandler = async (file: File): Promise<{ url: string }> => {
+    const formData = new FormData()
+    const data = d.getSignature
+    const key = `images/${file.name}`
+    formData.append('key', key)
+    formData.append('policy', data.policy)
+    formData.append('OSSAccessKeyId', data.accessId)
+    formData.append('success_action_status', '200')
+    formData.append('Signature', data.signature)
+    formData.append('file', file)
+    const res = await fetch(data.host, {
+      method: 'POST',
+      body: formData,
+    })
+
+    return {
+      url: res.url + key,
+    }
+  }
+
+  return uploadHandler
+}
+```
+
+通过使用 uploadHandler，我们可以上传图片。我们这里以 Antd 为例：
+
+```jsx
+import { Form, ImageUploader } from 'antd-mobile'
+import { useOSSUpload } from './hooks/useOSSUpload'
+
+function App() {
+  const uploadhandler = useOSSUpload()
+  return (
+    <Form>
+      <Form.Item label="上传图片">
+        <ImageUploader upload={uploadhandler}></ImageUploader>
+      </Form.Item>
+    </Form>
+  )
+}
+
+export default App
+```
