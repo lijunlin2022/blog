@@ -23,3 +23,52 @@
 我们可以选择「SDK 示例」，查看相关语言的例子，因为我使用的是 Nest.js，所以选择 TypeScript。
 
 ![](./assets/sms4.png)
+
+```ts
+import { Injectable } from '@nestjs/common';
+import Dysmsapi20170525, * as $Dysmsapi20170525 from '@alicloud/dysmsapi20170525';
+import * as $OpenApi from '@alicloud/openapi-client';
+import Util, * as $Util from '@alicloud/tea-util';
+import {
+  aliyunAccessKeyId,
+  aliyunAccessKeySecret,
+  signName,
+  templateCode,
+} from 'src/password.config';
+import { getRandomCode } from 'src/shared/utils';
+
+@Injectable()
+export class SMSService {
+  async sendVerificationCode(tel: string): Promise<string> {
+    const code = getRandomCode(4);
+    const config = new $OpenApi.Config({
+      accessKeyId: aliyunAccessKeyId,
+      accessKeySecret: aliyunAccessKeySecret,
+    });
+    config.endpoint = 'dysmsapi.aliyuncs.com';
+    const client = new Dysmsapi20170525(config);
+    const sendSmsRequest = new $Dysmsapi20170525.SendSmsRequest({
+      signName: signName,
+      templateCode: templateCode,
+      phoneNumbers: tel,
+      templateParam: `{"code":"${code}"}`,
+    });
+    const runtime = new $Util.RuntimeOptions({});
+    try {
+      await client.sendSmsWithOptions(sendSmsRequest, runtime);
+    } catch (error) {
+      Util.assertAsString(error.message);
+    }
+    return code;
+  }
+}
+```
+
+## 访问控制
+
+之后我们需要到阿里云访问控制，为我们的身份添加权限。
+
+![](./assets/sms5.png)
+![](./assets/sms6.png)
+
+调用代码后，我们就可以直接收到短信了。
