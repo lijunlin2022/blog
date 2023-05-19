@@ -28,7 +28,7 @@
 <script
   src="https://utteranc.es/client.js"
   repo="lijunlin2022/blog-issues"
-  issue-term="github-pages"
+  issue-term="mdbook-github-pages"
   theme="github-light"
   crossorigin="anonymous"
   async

@@ -205,3 +205,13 @@ println!("{}", s);
 ## 参考资料
 
 [^1]: C 语言风格的字符串以 `'/0'` 结尾。
+
+<script
+  src="https://utteranc.es/client.js"
+  repo="lijunlin2022/blog-issues"
+  issue-term="rust-string-&str"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+>
+</script>

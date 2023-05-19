@@ -10,7 +10,7 @@ mdBook 本身并不支持评论，但我们可以使用 [utterances](https://utt
 <script
   src="https://utteranc.es/client.js"
   repo="lijunlin2022/blog-issues"
-  issue-term="github-issues"
+  issue-term="mdbook-github-issues"
   theme="github-light"
   crossorigin="anonymous"
   async
@@ -21,7 +21,7 @@ mdBook 本身并不支持评论，但我们可以使用 [utterances](https://utt
 <script
   src="https://utteranc.es/client.js"
   repo="lijunlin2022/blog-issues"
-  issue-term="github-issues"
+  issue-term="mdbook-github-issues"
   theme="github-light"
   crossorigin="anonymous"
   async
