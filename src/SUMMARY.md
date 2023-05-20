@@ -6,6 +6,8 @@
   - [中文搜索](./mdbook/chinese-search.md)
 - [JavaScript](./js/README.md)
   - [值类型和引用类型](./js/value-and-reference.md)
+  - [异步](./js/async/README.md)
+    - [执行顺序](./js/async/execution-sequence.md)
 - [React](./react/README.md)
   - [父组件调用子组件方法](./react/parent-calls-child.md)
 - [Nest.js](./nestjs/README.md)
