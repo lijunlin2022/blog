@@ -18,6 +18,8 @@
   - [Ajax](./js/ajax.md)
   - [跨域](./js/cors.md)
   - [Cookie, LocalStorage 和 SessionStorage](./js/cookie-localstorage-and-sessionstorage.md)
+- [微信小程序](./wechat-mini-program/README.md)
+  - [分包异步化](./wechat-mini-program/async-subpackage.md)
 - [React](./react/README.md)
   - [父组件调用子组件方法](./react/parent-calls-child.md)
 - [Nest.js](./nestjs/README.md)
