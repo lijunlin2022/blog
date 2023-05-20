@@ -1,8 +1,8 @@
-# 02 margin 负值问题
 
-## 1 规律总结
 
-### 1.1 元素有自身宽度时
+## 规律总结
+
+### 元素有自身宽度时
 
 - `margin-top` 负值，元素向上移动
 - `margin-bottom` 负值，元素自身不受影响，下方元素向上移动
@@ -27,7 +27,7 @@
 
   ![](./assets/negative-margin4.jpg)
 
-### 1.2 元素没有自身宽度, 即 `width:auto;` 时
+### 元素没有自身宽度, 即 `width:auto;` 时
 
 - `margin-top` 负值，元素向上移动
 - `margin-bottom` 负值，元素自身不受影响，下方元素向上移动
@@ -50,9 +50,9 @@
 
   ![](./assets/negative-margin6.jpg)
 
-## 2 margin 负值的应用
+## margin 负值的应用
 
-### 2.1 经典的子绝父相 + margin 负值实现水平垂直居中
+- 子绝父相 + margin 负值实现水平垂直居中
 
 `子绝父相` 即子元素用绝对定位，父元素用相对定位。
 
