@@ -16,6 +16,7 @@
   - [异步](./js/async/README.md)
     - [执行顺序](./js/async/execution-sequence.md)
   - [Ajax](./js/ajax.md)
+  - [跨域](./js/cors.md)
 - [React](./react/README.md)
   - [父组件调用子组件方法](./react/parent-calls-child.md)
 - [Nest.js](./nestjs/README.md)
