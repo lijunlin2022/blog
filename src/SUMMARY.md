@@ -17,6 +17,7 @@
     - [执行顺序](./js/async/execution-sequence.md)
   - [Ajax](./js/ajax.md)
   - [跨域](./js/cors.md)
+  - [Cookie, LocalStorage 和 SessionStorage](./js/cookie-localstorage-and-sessionstorage.md)
 - [React](./react/README.md)
   - [父组件调用子组件方法](./react/parent-calls-child.md)
 - [Nest.js](./nestjs/README.md)
