@@ -25,6 +25,8 @@
   - [依赖](./rust/dependence.md)
   - [正则表达式](./rust/regex.md)
   - [测试](./rust/test.md)
+- [业务](./business/README.md)
+  - [重定向旧 URL 到新 URL](./business/redirect-old-url-to-new-url.md)
 - [北理工](./bit-life/README.md)
   - [IGEM 比赛](./bit-life/igem.md)
   - [ASP 连接 Access](./bit-life/asp.md)
