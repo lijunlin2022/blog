@@ -10,6 +10,7 @@
   - [SMS](./nestjs/sms.md)
 - [Node.js](./nodejs/README.md)
   - [文件](./nodejs/file.md)
+  - [readdir](./nodejs/readdir.md)
 - [前端工程化](./engineering/README.md)
   - [Gulp](./engineering/gulp.md)
   - [Babel 插件](./engineering/babel-plugin.md)
