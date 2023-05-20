@@ -30,3 +30,4 @@
 - [北理工](./bit-life/README.md)
   - [IGEM 比赛](./bit-life/igem.md)
   - [ASP 连接 Access](./bit-life/asp.md)
+  - [下载延河课堂视频](./bit-life/yanhe-course.md)
