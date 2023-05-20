@@ -25,8 +25,8 @@ mod tests {
 
 ## 参考资料
 
-[^1]: [Unit testing | Rust](https://rustwiki.org/en/rust-by-example/testing/unit_testing.html)
-[^2]: [Defanging an IP Address | LeetCode](https://leetcode.com/problems/defanging-an-ip-address/)
+- [^1]: [Unit testing | Rust](https://rustwiki.org/en/rust-by-example/testing/unit_testing.html)
+- [^2]: [Defanging an IP Address | LeetCode](https://leetcode.com/problems/defanging-an-ip-address/)
 
 <script
   src="https://utteranc.es/client.js"

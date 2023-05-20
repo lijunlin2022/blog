@@ -204,7 +204,7 @@ println!("{}", s);
 
 ## 参考资料
 
-[^1]: C 语言风格的字符串以 `'/0'` 结尾。
+- [^1]: C 语言风格的字符串以 `'/0'` 结尾。
 
 <script
   src="https://utteranc.es/client.js"

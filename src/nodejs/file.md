@@ -166,6 +166,6 @@ console.log(absolutePath); // 输出转换后的绝对路径
 
 ## 参考资料
 
-[^2]: [流（Stream）| Node.js 中文文档](https://www.nodeapp.cn/stream.html#stream_types_of_streams)
-[^3]: [Node.js 中的 Stream（流）](https://heptaluan.github.io/2019/10/09/Node/01/#%E6%B5%81%E7%9A%84%E5%88%86%E7%B1%BB)
-[^4]: [path.parse(path) | Node.js API](https://nodejs.cn/api/path/path_parse_path.html)
+- [^2]: [流（Stream）| Node.js 中文文档](https://www.nodeapp.cn/stream.html#stream_types_of_streams)
+- [^3]: [Node.js 中的 Stream（流）](https://heptaluan.github.io/2019/10/09/Node/01/#%E6%B5%81%E7%9A%84%E5%88%86%E7%B1%BB)
+- [^4]: [path.parse(path) | Node.js API](https://nodejs.cn/api/path/path_parse_path.html)
