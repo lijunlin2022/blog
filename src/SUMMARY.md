@@ -45,6 +45,7 @@
   - [重定向旧 URL 到新 URL](./business/redirect-old-url-to-new-url.md)
 - [北理工](./bit-life/README.md)
   - [IGEM 比赛](./bit-life/igem.md)
+  - [配置 IIS](./bit-life/iis.md)
   - [ASP 连接 Access](./bit-life/asp.md)
   - [下载延河课堂视频](./bit-life/yanhe-course.md)
   - [Windows 下 32 位汇编贪吃蛇](./bit-life/snake/README.md)
