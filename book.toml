@@ -1,9 +1,13 @@
 [book]
-authors = ["lijunlin"]
-language = "en"
+authors = ["李俊霖"]
+language = "zh-CN"
 multilingual = false
 src = "src"
-title = "李俊霖的博客"
+title = "李俊霖的网络日志"
 
 [output.html]
 additional-js = ["assets/fzf.umd.js", "assets/elasticlunr.js"]
+git-repository-url = "https://github.com/lijunlin2022/blog/issues"
+
+[output.html.print]
+enable = false
