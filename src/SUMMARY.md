@@ -18,6 +18,7 @@
   - [函数和 this 指向](./js/function-and-this.md)
   - [异步](./js/async/README.md)
     - [执行顺序](./js/async/execution-sequence.md)
+    - [Promise](./js/promise.md)
   - [Ajax](./js/ajax.md)
   - [跨域](./js/cors.md)
   - [Cookie, LocalStorage 和 SessionStorage](./js/cookie-localstorage-and-sessionstorage.md)
