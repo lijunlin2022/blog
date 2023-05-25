@@ -1,5 +1,3 @@
-# 使用 GitHub Issues 做评论
-
 mdBook 本身并不支持评论，但我们可以使用 [utterances](https://utteranc.es/) 这个评论插件，很方便快捷地添加评论功能。
 
 1. 在 GitHub 新建一个用于评论的仓库。比如我单独新建了一个 [blog-issues](https://github.com/lijunlin2022/blog-issues)

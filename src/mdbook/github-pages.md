@@ -1,5 +1,3 @@
-# 使用 GitHub Pages 部署网站
-
 通过使用 GitHub Actions 的 workflow（工作流）的模板，我们可以快速部署网站到 github.io 域名下。
 
 1. GitHub 仓库中，选择 Settings -> Pages -> GitHub Actions -> browse all workflows
