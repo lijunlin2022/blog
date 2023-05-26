@@ -21,6 +21,7 @@
   - [异步](./js/async/README.md)
     - [执行顺序](./js/async/execution-sequence.md)
     - [Promise](./js/promise.md)
+    - [Async 和 Await](./js/async/async-and-await.md)
   - [Ajax](./js/ajax.md)
   - [跨域](./js/cors.md)
   - [Cookie, LocalStorage 和 SessionStorage](./js/cookie-localstorage-and-sessionstorage.md)
