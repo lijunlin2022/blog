@@ -15,7 +15,7 @@ timeline
 ## 我的技能
 
 ```mermaid
-%%{init: { 'logLevel': 'debug', 'theme': 'neutral' } }%%
+%%{init: { 'pie' : { 'textPosition': 0.4 },'logLevel': 'debug', 'theme': 'neutral', 'themeVariables': { 'pieOuterStrokeWidth' : '0px' } } }%%
 pie
   "微信小程序" : 40
   "Vue" : 20
