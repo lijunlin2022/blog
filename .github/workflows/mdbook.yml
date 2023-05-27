@@ -32,6 +32,8 @@ jobs:
       MDBOOK_VERSION: 0.4.21
     steps:
       - uses: actions/checkout@v3
+      - name: Install static-sitemap-cli
+        run: npm install static-sitemap-cli
       - name: Install mdBook
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
@@ -47,6 +49,10 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./book
+      - name: Generate sitemap
+        run: |
+          cd book
+          npx sscli --no-clean --base https://lijunlin2022.github.io/blog/
 
   # Deployment job
   deploy:

@@ -1,6 +1,6 @@
 # Summary
 
-- [关于我](./about.md)
+- [个人简介](./index.md)
 - [mdBook](./mdbook/README.md)
   - [使用 GitHub Pages 部署网站](./mdbook/github-pages.md)
   - [使用 GitHub Issues 做评论](./mdbook/github-issues.md)
