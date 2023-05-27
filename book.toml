@@ -10,6 +10,7 @@ command = "mdbook-mermaid"
 
 [output.html]
 additional-js = ["assets/fzf.umd.js", "assets/elasticlunr.js", "assets/mermaid.min.js", "assets/mermaid-init.js"]
+site-url = "https://lijunlin2022.github.io/blog/"
 
 git-repository-url = "https://github.com/lijunlin2022/blog/issues"
 
