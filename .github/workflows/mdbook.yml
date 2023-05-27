@@ -33,7 +33,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Install static-sitemap-cli
-        run: npm install static-sitemap-cli
+        run: npm install static-sitemap-cli -g
       - name: Install mdBook
         run: |
           curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf -y | sh
@@ -45,14 +45,12 @@ jobs:
         uses: actions/configure-pages@v3
       - name: Build with mdBook
         run: mdbook build
+      - name: Generate sitemap
+        run: npx sscli --base https://lijunlin2022.github.io/blog/ -r book
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./book
-      - name: Generate sitemap
-        run: |
-          cd book
-          npx sscli --no-clean --base https://lijunlin2022.github.io/blog/
 
   # Deployment job
   deploy:
