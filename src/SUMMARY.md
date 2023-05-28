@@ -6,6 +6,7 @@
   - [使用 GitHub Issues 做评论](./mdbook/github-issues.md)
   - [添加中文搜索功能](./mdbook/chinese-search.md)
   - [添加 Mermaid 画图功能](./mdbook/mermaid.md)
+  - [设置 404 页面](./mdbook/not-found.md)
 - [CSS](./css/README.md)
   - [BFC](./css/bfc.md)
   - [Margin 负值](./css/negative-margin.md)
