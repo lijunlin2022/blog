@@ -1,6 +1,6 @@
-## 个人简介
-
-你好哇，我是李俊霖。
+<div style="display: flex;">
+  <span>你好哇，我是李俊霖。</span>
+</div>
 
 ## 我的经历
 
