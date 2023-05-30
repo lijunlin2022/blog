@@ -2,10 +2,10 @@
 /* Globals */
 
 :root {
-    --sidebar-width: 300px;
+    --sidebar-width: 250px;
     --page-padding: 15px;
-    --content-max-width: 750px;
-    --menu-bar-height: 50px;
+    --content-max-width: 900px;
+    --menu-bar-height: 60px;
     --mono-font: "Source Code Pro", Consolas, "Ubuntu Mono", Menlo, "DejaVu Sans Mono", monospace, monospace;
     --code-font-size: 0.875em /* please adjust the ace font size accordingly in editor.js */
 }
@@ -93,33 +93,33 @@
 }
 
 .light {
-    --bg: hsl(0, 0%, 100%);
-    --fg: hsl(0, 0%, 0%);
+    --bg: #fdfdfd;
+    --fg: #1f1f1f;
 
-    --sidebar-bg: #fafafa;
-    --sidebar-fg: hsl(0, 0%, 0%);
+    --sidebar-bg: #f5f5f5;
+    --sidebar-fg: #1f1f1f;
     --sidebar-non-existant: #aaaaaa;
-    --sidebar-active: #1f1fff;
+    --sidebar-active: #e0234e;
     --sidebar-spacer: #f4f4f4;
 
     --scrollbar: #8F8F8F;
 
-    --icons: #747474;
-    --icons-hover: #000000;
+    --icons: #ffffff;
+    --icons-hover: #e0234e;
 
-    --links: #20609f;
+    --links: #e0234e;
 
-    --inline-code-color: #301900;
+    --inline-code-color: #e0234e;
 
-    --theme-popup-bg: #fafafa;
-    --theme-popup-border: #cccccc;
+    --theme-popup-bg: #e0234e;
+    --theme-popup-border: #ccc;
     --theme-hover: #e6e6e6;
 
-    --quote-bg: hsl(197, 37%, 96%);
-    --quote-border: hsl(197, 37%, 91%);
+    --quote-bg:#f3f9fc;
+    --quote-border: #0894e2;
 
     --table-border-color: hsl(0, 0%, 95%);
-    --table-header-bg: hsl(0, 0%, 80%);
+    --table-header-bg: #efefef;
     --table-alternate-bg: hsl(0, 0%, 97%);
 
     --searchbar-border-color: #aaa;
@@ -130,6 +130,8 @@
     --searchresults-border-color: #888;
     --searchresults-li-bg: #e4f2fe;
     --search-mark-bg: #a2cff5;
+
+    --menu-bar-bg: #151515;
 }
 
 .navy {
@@ -170,6 +172,8 @@
     --searchresults-border-color: #5c5c68;
     --searchresults-li-bg: #242430;
     --search-mark-bg: #a2cff5;
+
+    --menu-bar-bg: hsl(226, 23%, 11%);
 }
 
 .rust {
@@ -210,6 +214,8 @@
     --searchresults-border-color: #888;
     --searchresults-li-bg: #dec2a2;
     --search-mark-bg: #e69f67;
+
+    --menu-bar-bg: hsl(60, 9%, 87%);
 }
 
 @media (prefers-color-scheme: dark) {

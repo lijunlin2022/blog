@@ -59,8 +59,10 @@
 .hljs {
   display: block;
   overflow-x: auto;
-  background: #f6f7f6;
-  color: #000;
+  background: #f6f8fa;
+  color: #1f1f1f;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
 }
 
 .hljs-emphasis {

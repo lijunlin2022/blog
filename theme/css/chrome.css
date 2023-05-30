@@ -36,7 +36,7 @@ a > .hljs {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    background-color: var(--bg);
+    background-color: var(--menu-bar-bg);
     border-bottom-color: var(--bg);
     border-bottom-width: 1px;
     border-bottom-style: solid;
@@ -100,7 +100,7 @@ a > .hljs {
 .menu-title {
     display: inline-block;
     font-weight: 200;
-    font-size: 2.4rem;
+    font-size: 2rem;
     line-height: var(--menu-bar-height);
     text-align: center;
     margin: 0;
