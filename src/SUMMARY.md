@@ -1,7 +1,6 @@
 # Summary
 
-[个人简介](./index.md)
-
+[自我介绍](./index.md)
 - [mdBook](./mdbook/README.md)
   - [使用 GitHub Pages 部署网站](./mdbook/github-pages.md)
   - [使用 GitHub Issues 做评论](./mdbook/github-issues.md)
@@ -72,4 +71,3 @@
     - [碰撞检测](./bit-life/snake/collision-detection.md)
 - [爱好](./hobby/README.md)
   - [天之下](./hobby/under-heaven/README.md)
-
