@@ -71,3 +71,5 @@
     - [碰撞检测](./bit-life/snake/collision-detection.md)
 - [爱好](./hobby/README.md)
   - [天之下](./hobby/under-heaven/README.md)
+- [随笔](./essay/README.md)
+  - [借钱给亲戚的二三事](./essay/lend-money-to-relatives.md)
